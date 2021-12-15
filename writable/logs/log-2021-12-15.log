@@ -1,0 +1,45 @@
+CRITICAL - 2021-12-15 16:15:57 --> Class 'App\Models\CoaModel' not found
+#0 /home/rnds9264/smarthotel/vendor/codeigniter4/framework/system/CodeIgniter.php(801): App\Controllers\Coa->__construct()
+#1 /home/rnds9264/smarthotel/vendor/codeigniter4/framework/system/CodeIgniter.php(401): CodeIgniter\CodeIgniter->createController()
+#2 /home/rnds9264/smarthotel/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /home/rnds9264/public_html/smarthotel/index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2021-12-15 16:16:39 --> Class 'App\Models\CoaModel' not found
+#0 /home/rnds9264/smarthotel/vendor/codeigniter4/framework/system/CodeIgniter.php(801): App\Controllers\Coa->__construct()
+#1 /home/rnds9264/smarthotel/vendor/codeigniter4/framework/system/CodeIgniter.php(401): CodeIgniter\CodeIgniter->createController()
+#2 /home/rnds9264/smarthotel/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /home/rnds9264/public_html/smarthotel/index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2021-12-15 16:19:05 --> Error connecting to the database: Access denied for user '****'@'localhost' to database 'rnds9264_smarthotel'
+CRITICAL - 2021-12-15 16:19:05 --> Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost' to database 'rnds9264_smarthotel'
+#0 /home/rnds9264/smarthotel/vendor/codeigniter4/framework/system/Database/BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 /home/rnds9264/smarthotel/app/Models/CoaModel.php(12): CodeIgniter\Database\BaseConnection->query('SELECT * FROM m...')
+#2 /home/rnds9264/smarthotel/app/Controllers/Coa.php(17): App\Models\CoaModel->getAll()
+#3 /home/rnds9264/smarthotel/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\Coa->index()
+#4 /home/rnds9264/smarthotel/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Coa))
+#5 /home/rnds9264/smarthotel/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/rnds9264/public_html/smarthotel/index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+ERROR - 2021-12-15 16:19:50 --> Error connecting to the database: Access denied for user '****'@'localhost' (using password: YES)
+CRITICAL - 2021-12-15 16:19:50 --> Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost' (using password: YES)
+#0 /home/rnds9264/smarthotel/vendor/codeigniter4/framework/system/Database/BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 /home/rnds9264/smarthotel/app/Models/CoaModel.php(12): CodeIgniter\Database\BaseConnection->query('SELECT * FROM m...')
+#2 /home/rnds9264/smarthotel/app/Controllers/Coa.php(17): App\Models\CoaModel->getAll()
+#3 /home/rnds9264/smarthotel/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\Coa->index()
+#4 /home/rnds9264/smarthotel/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Coa))
+#5 /home/rnds9264/smarthotel/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/rnds9264/public_html/smarthotel/index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+ERROR - 2021-12-15 16:19:51 --> Error connecting to the database: Access denied for user '****'@'localhost' (using password: YES)
+CRITICAL - 2021-12-15 16:19:51 --> Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost' (using password: YES)
+#0 /home/rnds9264/smarthotel/vendor/codeigniter4/framework/system/Database/BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 /home/rnds9264/smarthotel/app/Models/CoaModel.php(12): CodeIgniter\Database\BaseConnection->query('SELECT * FROM m...')
+#2 /home/rnds9264/smarthotel/app/Controllers/Coa.php(17): App\Models\CoaModel->getAll()
+#3 /home/rnds9264/smarthotel/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\Coa->index()
+#4 /home/rnds9264/smarthotel/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Coa))
+#5 /home/rnds9264/smarthotel/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/rnds9264/public_html/smarthotel/index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
