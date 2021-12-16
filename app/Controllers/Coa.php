@@ -17,5 +17,7 @@ class Coa extends BaseController
         $data['coa'] = $this->CoaModel->getAll();
 
         print_r($data['coa']);
+        echo "<br>";
+        echo "perubahan pertama";
 	}
 }
