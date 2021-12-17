@@ -36,4 +36,14 @@ class Mesinlearning extends BaseController
 		//return view('welcome_message');
 		return view('Mesinlearning/Asosiasi', $data);
 	}
+
+	public function cobacluster(){
+		
+		$samples = [[1, 1], [8, 7], [1, 2], [7, 8], [2, 1], [8, 9]];
+		$kmeans = new KMeans(2, KMeans::INIT_RANDOM);
+		$data['Samples'] = $samples;
+		$data['Cluster'] = $kmeans->cluster($samples);
+
+		return view('Mesinlearning/kluster', $data);
+	}
 }
