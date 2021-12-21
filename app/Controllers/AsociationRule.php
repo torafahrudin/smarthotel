@@ -19,10 +19,12 @@ class AsociationRule extends BaseController
         $associator->train($samples, $labels);
         $data['Samples'] = $samples;
         $data['Rules'] = $associator->getRules();
+        $data['jumlahtrans'] = count($samples);
 
-        echo "<pre>";
-        print_r($data['Rules']);
-        echo "</pre>";
+        // echo "<pre>";
+        // print_r($data['Rules']);
+        // echo "</pre>";
+        echo view('Mesinlearning/Asosiasi');
     }
     
     public function cobaasosiasi()
