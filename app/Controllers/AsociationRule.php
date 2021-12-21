@@ -60,6 +60,26 @@ class AsociationRule extends BaseController
          return view('Mesinlearning/Asosiasicoba', $data);
     }
     
+    public function cobaasosiasi()
+    {
+        
+        $samples = [['Bread', 'Milk'], 
+                    ['Bread', 'Diaper', 'Beer', 'Eggs'],
+                    ['Milk', 'Diaper', 'Beer', 'Coke'], 
+                    ['Bread', 'Milk', 'Diaper', 'Beer'], 
+                    ['Bread', 'Milk', 'Diaper', 'Coke']];
+        $labels  = [];
+
+        $associator = new Apriori($support = 0.4, $confidence = 0.6);
+        $associator->train($samples, $labels);
+        $data['Samples'] = $samples;
+        $data['Rules'] = $associator->getRules();
+
+        echo "<pre>";
+        print_r($data['Rules']);
+        echo "</pre>";
+    }
+    
     public function deleterule(){
         $data['activmenu']='#609312';
         echo view('dashboard_cust_head');
