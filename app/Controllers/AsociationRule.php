@@ -24,7 +24,7 @@ class AsociationRule extends BaseController
         // echo "<pre>";
         // print_r($data['Rules']);
         // echo "</pre>";
-        echo view('Mesinlearning/Asosiasi');
+        echo view('Mesinlearning/Asosiasi', $data);
     }
     
     public function cobaasosiasi()
