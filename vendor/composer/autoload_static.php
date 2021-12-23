@@ -176,6 +176,13 @@ class ComposerStaticInit7136463ad318570ddc05d2df228d7a10
                 0 => __DIR__ . '/..' . '/mikey179/vfsstream/src/main/php',
             ),
         ),
+        'P' => 
+        array (
+            'PHPExcel' => 
+            array (
+                0 => __DIR__ . '/..' . '/phpoffice/phpexcel/Classes',
+            ),
+        ),
     );
 
     public static $classMap = array (
