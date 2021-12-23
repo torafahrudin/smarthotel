@@ -147,12 +147,22 @@ class AsosiasiruleModel extends Model
         $sql="SELECT nama_produk, kode_produk from produk where kode_produk=?";
         return $query = $this->db->query($sql, array($kodeproduk))->getResult();
     }
+    public function get_minrule_all(){
+         $sql="SELECT * from master_min_rule";
+         return $query=$this->db->query($sql)->getResult();
+    }
+    public function get_minrule(){
+        $sql="SELECT * from master_min_rule where status='active'";
+        return $query=$this->db->query($sql)->getResult();
+    }
     public function update_rule(){
        
    
         $antesenden=$_POST['Anteseden2'];
         $consequent=$_POST['Consequent2'];
-        $sql="INSERT INTO asociation_rule set id_rule=?, rule=?, keterangan='Baru'";
+        $support=$_POST['Support2'];
+        $Confidance=$_POST['Confident2'];
+        $sql="INSERT INTO asociation_rule set id_rule=?, rule=?,Support=?, Confidance=? , keterangan='Baru'";
     for ($i=0; $i < count($antesenden) ; $i++) { 
              $sql1="SELECT ifnull(max(id_rule),0) as id_rule from asociation_rule";
             $query = $this->db->query($sql1)->getResult();
@@ -161,10 +171,14 @@ class AsosiasiruleModel extends Model
             }
             $rule[$i]='Jika membeli '.$antesenden[$i].' maka membeli '.$consequent[$i];
             echo $rule[$i];
-            $query = $this->db->query($sql, array($idrule,$rule[$i]));
+            $query = $this->db->query($sql, array($idrule,$rule[$i],$support[$i],$Confidance[$i]));
          }  
     }
+    public function data_rule(){
+        $sql="SELECT * from asociation_rule";
 
+        return $query=$this->db->query($sql)->getResult();
+    }
     public function update_detail(){
        
 
@@ -231,8 +245,9 @@ class AsosiasiruleModel extends Model
 
    
      public function data_detailrule(){
-        $sql="SELECT b.id_rule, b.id_produk, b.produk_rekomendasi, b.jml_terjual,  d.nama_produk,c.nama_produk FROM detail_rule as b join produk as c on (b.produk_rekomendasi=c.kode_produk) join produk as d on (b.id_produk=d.kode_produk)";
-        return $query= $this->db->query($sql)->getResult();
+       $sql="SELECT a.*, b.nama_produk as produk_pilihan, c.nama_produk as produk_rekomen from detail_rule as a join produk as b on (a.id_produk=b.kode_produk) join produk as c on (a.produk_rekomendasi=c.kode_produk)";
+
+        return $query=$this->db->query($sql)->getResult();
     }
       
 }

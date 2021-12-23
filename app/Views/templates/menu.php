@@ -6,13 +6,13 @@
         <div class="user-box text-center">
             <img src="<?= base_url(); ?>/assets/images/users/user-1.jpg" alt="user-img" title="Mat Helme" class="rounded-circle img-thumbnail avatar-md">
             <div class="dropdown">
-                <a href="#" class="user-name dropdown-toggle h5 mt-2 mb-1 d-block" data-toggle="dropdown" aria-expanded="false"><?= user()->username; ?></a>
+                <a href="#" class="user-name dropdown-toggle h5 mt-2 mb-1 d-block" data-toggle="dropdown" aria-expanded="false"></a>
             </div>
         </div>
 
         <!--- Sidemenu -->
         <!--- Sidemenu Admin-->
-        <?php if (in_groups('admin')) : ?>
+        <?php //if (in_groups('admin')) : ?>
             <div id="sidebar-menu">
 
                 <ul class="metismenu" id="side-menu">
@@ -62,6 +62,12 @@
                             <li><a href="/aktiva/bhp"><i class="mdi mdi-safe-square"></i> BHP</a></li>
                             <li><a href="/aktiva/aktivatetap"><i class="mdi  mdi-align-vertical-bottom"></i> Aktiva Tetap</a></li>
                         </ul>
+                    </li>
+                    <li>
+                        <a href="<?php echo base_url('AsociationRule/data_min_rule') ?>">
+                            <i class="mdi mdi-account-group fa-lg"></i>
+                            <span> Data Minimal Rule </span>
+                        </a>
                     </li>
 
                     <!-- <li>
@@ -115,7 +121,13 @@
                             <li><a href="/aktiva/reuse"><i class="mdi mdi-image-filter-none"></i> Reuse</a></li>
                         </ul>
                     </li>
-
+                    <li class="menu-title">Sistem Rekomendasi</li>
+                     <li>
+                        <a href="<?php echo base_url('AsociationRule') ; ?>">
+                            <i class="mdi mdi-clipboard-file fa-lg"></i>
+                            <span> Asociation Rule </span>
+                        </a>
+                    </li>
                     <li class="menu-title">Report</li>
 
                     <li>
@@ -149,12 +161,12 @@
                 </ul>
 
             </div>
-        <?php endif; ?>
+        <?php //endif; ?>
 
 
         <!--- Sidemenu HouseKeeping-->
-        <?php if (in_groups('housekeeping')) : ?>
-            <div id="sidebar-menu">
+        <?php //if (in_groups('housekeeping')) : ?>
+           <!--  <div id="sidebar-menu">
 
                 <ul class="metismenu" id="side-menu">
 
@@ -184,13 +196,13 @@
                     </li>
 
                 </ul>
-            </div>
-        <?php endif; ?>
+            </div> -->
+        <?php //endif; ?>
 
 
         <!--- Sidemenu Pemilik-->
-        <?php if (in_groups('pemilik')) : ?>
-            <div id="sidebar-menu">
+        <?php //if (in_groups('pemilik')) : ?>
+            <<!-- div id="sidebar-menu">
 
                 <ul class="metismenu" id="side-menu">
 
@@ -230,8 +242,8 @@
 
                 </ul>
 
-            </div>
-        <?php endif; ?>
+            </div> -->
+        <?php //endif; ?>
 
 
         <!-- End Sidebar -->
