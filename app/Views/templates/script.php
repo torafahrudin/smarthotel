@@ -145,7 +145,7 @@
             var tanggal = $('#tanggal').val();
             // AJAX request
             $.ajax({
-                url: '<?= base_url() ?>/aktiva/pembeliankembali/fetch_eoq',
+                url: '<?= base_url() ?>/aktiva/pembelianKembali/fetch_eoq',
                 method: 'post',
                 data: {
                     id_aktiva: id_aktiva,
