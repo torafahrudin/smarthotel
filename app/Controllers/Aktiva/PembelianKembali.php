@@ -5,6 +5,7 @@ namespace App\Controllers\Aktiva;
 use App\Controllers\BaseController;
 use \App\Models\Aktiva\PembelianKembaliModel;
 use \App\Models\Aktiva\EoqModel;
+use \App\Models\Aktiva\AktivaTetapModel;
 use \App\Models\CoaModel;
 use \App\Models\VendorModel;
 use \App\Models\Laporan\JurnalModel;
