@@ -19,7 +19,6 @@
     <link href="<?= base_url(); ?>/assets/libs/bootstrap-timepicker/bootstrap-timepicker.min.css" rel="stylesheet">
     <link href="<?= base_url(); ?>/assets/libs/bootstrap-datepicker/bootstrap-datepicker.css" rel="stylesheet">
     <link href="<?= base_url(); ?>/assets/libs/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
-    <link href="<?= base_url(); ?>/assets/libs/dropify/dropify.min.css" rel="stylesheet" type="text/css" />
     <!-- form css end-->
 
     <!-- Responsive Table css -->
