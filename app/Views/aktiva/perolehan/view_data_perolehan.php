@@ -48,7 +48,7 @@
                                             <th class="text-center">Jumlah</th>
                                             <th class="text-right">Total Perolehan</th>
                                             <th class="text-center">Masa Manfaat</th>
-                                            <th class="text-center">Nilai Residu </th>
+                                            <!-- <th class="text-center">Nilai Residu </th> -->
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -62,7 +62,7 @@
                                                 <td class="text-center"><?= $data['jumlah'] ?> Unit</td>
                                                 <td class="text-right"><?= nominal($data['harga_perolehan'] * $data['jumlah']) ?></td>
                                                 <td class="text-center"><?= $data['masa_manfaat'] ?> Tahun</td>
-                                                <td class="text-right"><?= nominal($data['estimasi_nilai_residu']) ?></td>
+                                                <!-- <td class="text-right"><?= nominal($data['estimasi_nilai_residu']) ?></td> -->
                                             </tr>
                                         <?php endforeach; ?>
                                     </tbody>
