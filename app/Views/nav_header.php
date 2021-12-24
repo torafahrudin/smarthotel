@@ -48,6 +48,17 @@
                             </div>
                             <div class="gem-points">
                                 <a href="#" class="text-light-yellow fw-500 fs-18"> <!-- <i class="fas fa-concierge-bell"></i> -->
+                                    <span>My Order</span>
+                                </a>
+                            </div>
+                            <div class="gem-points">
+                                <a href="checkout" class="text-light-yellow fw-500 fs-18">> 
+                                    <span>Payment</span>
+                                </a>
+                            </div>
+                            </div>
+                            <div class="gem-points">
+                                <a href="#" class="text-light-yellow fw-500 fs-18"> <!-- <i class="fas fa-concierge-bell"></i> -->
                                     <span>Galery</span>
                                 </a>
                             </div>
@@ -152,77 +163,10 @@
                             </div>
                             <!-- user notification -->
                             <!-- user cart -->
-                            <div class="cart-btn cart-dropdown">
-                                <a href="#" class="text-light-green fw-700"> <i class="fas fa-shopping-bag" style="color:#E5CA01;"></i>
-                                    <span class="user-alert-cart">3</span>
+                            <div class="cart-btn">
+                                <a href="cart" class="text-light-green btn-cart menu-link fw-700"> <i class="fas fa-shopping-bag" style="color:#E5CA01;"></i>
+                                    <span id="user-alert-cart" class="user-alert-cart">0</span>
                                 </a>
-                                <div class="cart-detail-box">
-                                    <div class="card">
-                                        <div class="card-header padding-15">Your Order</div>
-                                        <div class="card-body no-padding">
-                                            <div class="cat-product-box">
-                                                <div class="cat-product">
-                                                    <div class="cat-name">
-                                                        <a href="#">
-                                                            <p class="text-light-green"><span class="text-dark-white">1</span> Chilli Chicken</p> <span class="text-light-white">small, chilli chicken</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="delete-btn">
-                                                        <a href="#" class="text-dark-white"> <i class="far fa-trash-alt"></i>
-                                                        </a>
-                                                    </div>
-                                                    <div class="price"> <a href="#" class="text-dark-white fw-500">
-                              $2.25
-                            </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="cat-product-box">
-                                                <div class="cat-product">
-                                                    <div class="cat-name">
-                                                        <a href="#">
-                                                            <p class="text-light-green"><span class="text-dark-white">1</span> loaded cheese</p> <span class="text-light-white">small, chilli chicken</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="delete-btn">
-                                                        <a href="#" class="text-dark-white"> <i class="far fa-trash-alt"></i>
-                                                        </a>
-                                                    </div>
-                                                    <div class="price"> <a href="#" class="text-dark-white fw-500">
-                              $2.25
-                            </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="cat-product-box">
-                                                <div class="cat-product">
-                                                    <div class="cat-name">
-                                                        <a href="#">
-                                                            <p class="text-light-green"><span class="text-dark-white">1</span> Tortia Chicken</p> <span class="text-light-white">small, chilli chicken</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="delete-btn">
-                                                        <a href="#" class="text-dark-white"> <i class="far fa-trash-alt"></i>
-                                                        </a>
-                                                    </div>
-                                                    <div class="price"> <a href="#" class="text-dark-white fw-500">
-                              $2.25
-                            </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="item-total">
-                                                <div class="total-price border-0"> <span class="text-dark-white fw-700">Items subtotal:</span>
-                                                    <span class="text-dark-white fw-700">$9.99</span>
-                                                </div>
-                                                <div class="empty-bag padding-15"> <a href="#">Empty bag</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card-footer padding-15"> <a href="checkout.html" class="btn-first green-btn text-custom-white full-width fw-500">Proceed to Checkout</a>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                             <!-- user cart -->
                         </div>

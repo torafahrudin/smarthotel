@@ -1,3 +1,3 @@
 <?php
-echo "Mia Cantik"
+echo "Mia jelek"
 ?>
