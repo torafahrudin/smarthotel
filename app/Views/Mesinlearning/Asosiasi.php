@@ -34,7 +34,7 @@
             <div class="col-12">
                 <div class="card-box">
                     <div class="pb-2">
-                        <a href="/pegawaitetap/add" type="button" class="btn btn-primary waves-effect waves-light text-white">
+                        <a  type="button" class="btn btn-primary waves-effect waves-light text-white" data-toggle="modal" data-target="#updateminrule">
                              Update Minimal Rule
                         </a>
                     </div>
@@ -271,5 +271,51 @@
 
 </div> <!-- content -->
 
+<div id="updateminrule" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myCenterModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" >
+            <div class="modal-content" style="width: auto; height: auto;">
+                <div class="modal-header bg-primary">
+                    <h4 class="modal-title text-white" id="myCenterModalLabel">Data Minimal Rule</h4>
+                    <button type="button" class="close text-white" data-dismiss="modal" aria-hidden="true">×</button>
+                </div>
+                <div class="modal-body" style="width: auto; height: auto;">
+                     <table id="datatable" class="table table-striped table-bordered nowrap">
+                                    <thead>
+                                        <tr class="bg-dark-light">
+                                            <th>ID </th>
+                                            <th>Minimal Suppport</th>
+                                            <th>Minimal Confidance</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php foreach ($minrule as $value) : ?>
+                                            <tr>
+                                                <td>
+                                                    <?= $value->id ?>
+                                                </td>
+                                                <td>
+                                                    <?= present($value->min_sup) ?>
+                                                </td>
+                                                <td>
+                                                    <?= present($value->min_con) ?>
+                                                </td>
+
+                                                <td class="d-print-none text-center">
+                                                    
+                                                        <a type="button" href="<?php echo base_url('AsociationRule/Activateminrule/'.$value->id ); ?> "class="btn btn-primary waves-effect waves-light text-white <?php  echo ($value->status=='active') ? 'disabled' : ''; ?>"><?php echo ($value->status=='active') ? 'Activated' : 'Activate'; ?></a>
+                                                        
+                                                </td>
+                                            </tr>
+                                        <?php endforeach; ?>
+
+                                    </tbody>
+                                </table>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
 
 <?= $this->endSection('content'); ?>

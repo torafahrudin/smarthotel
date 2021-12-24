@@ -66,82 +66,6 @@ class AsosiasiruleModel extends Model
         return $arr;
     }
 
-    // public function frekuensiItem($data)
-    // {
-    //     $arr = [];
-
-    //     for ($i = 0; $i < count($data); $i++) {
-    //         $jum = array_count_values($data[$i]);
-            
-    //         foreach ($jum as $key => $v) {
-    //             if (array_key_exists($key, $arr)) {
-    //                 $arr[$key] += 1;
-    //             } else {
-    //                 $arr[$key] = 1;
-    //             }
-    //         }
-    //     }
-    //     return $arr;
-    // }
-    // public function eliminasiItem($data, $minSupport,$jumlahtransaksi)
-    // {
-    //     $arr = [];
-    //     foreach ($data as $key => $v) {
-    //         $v=$v/$jumlahtransaksi;
-    //         if ($v >= $minSupport) {
-    //             $arr[$key] = $v;
-    //         }
-    //     }
-    //     return $arr;
-    // }
-    // public function pasanganItem($data_filter)
-    // {
-    //     $n = 0;
-    //     $arr = [];
-    //     foreach ($data_filter as $key1 => $v1) {
-    //         $m = 1;
-    //         foreach ($data_filter as $key2 => $v2) {
-    //             $str = explode("_", $key2);
-    //             for ($i = 0; $i < count($str); $i++) {
-
-    //                 if (!strstr($key1, $str[$i])) {
-    //                     if ($m > $n + 1 && count($data_filter) > $n + 1) {
-    //                         $arr[$key1 . "_" . $str[$i]] = 0;
-    //                     }
-    //                 }
-    //             }
-    //             $m++;
-    //         }
-    //         $n++;
-    //     }
-    //     return $arr;
-    // }
-
-    // public function frekuensiPasanganItem($data_pasangan, $data)
-    // {
-    //     $arr = $data_pasangan;
-    //     $ky = "";
-    //     $kali = 0;
-    //     foreach ($data_pasangan as $key1 => $k) {
-    //         for ($i = 0; $i < count($data); $i++) {
-    //             $kk = explode("_", $key1);
-    //             $jm = 0;
-    //             for ($k = 0; $k < count($kk); $k++) {
-
-    //                 for ($j = 0; $j < count($data[$i]); $j++) {
-    //                     if ($data[$i][$j] == $kk[$k]) {
-    //                         $jm += 1;
-    //                         break;
-    //                     }
-    //                 }
-    //             }
-    //             if ($jm > count($kk) - 1) {
-    //                 $arr[$key1] += 1;
-    //             }
-    //         }
-    //     }
-    //     return $arr;
-    // }
 
     public function name_produk($kodeproduk){
         $sql="SELECT nama_produk, kode_produk from produk where kode_produk=?";
@@ -155,6 +79,13 @@ class AsosiasiruleModel extends Model
         $sql="SELECT * from master_min_rule where status='active'";
         return $query=$this->db->query($sql)->getResult();
     }
+    public function tambahminrule(){
+        $id=$_POST['id'];
+        $minsup=$_POST['min_sup']/100;
+        $mincon=$_POST['min_con']/100;
+        $sql = "INSERT INTO master_min_rule Set id=?, min_sup=?, min_con=?, status='non active'";
+        return $query=$this->db->query($sql, array($id,$minsup, $mincon));
+    }
     public function update_rule(){
        
    
@@ -164,7 +95,7 @@ class AsosiasiruleModel extends Model
         $Confidance=$_POST['Confident2'];
         $sql="INSERT INTO asociation_rule set id_rule=?, rule=?,Support=?, Confidance=? , keterangan='Baru'";
     for ($i=0; $i < count($antesenden) ; $i++) { 
-             $sql1="SELECT ifnull(max(id_rule),0) as id_rule from asociation_rule";
+            $sql1="SELECT ifnull(max(id_rule),0) as id_rule from asociation_rule";
             $query = $this->db->query($sql1)->getResult();
             foreach ($query as $value) {
                 $idrule=$value->id_rule+1;
@@ -174,6 +105,15 @@ class AsosiasiruleModel extends Model
             $query = $this->db->query($sql, array($idrule,$rule[$i],$support[$i],$Confidance[$i]));
          }  
     }
+    public function id_min_rule(){
+        $sql1="SELECT ifnull(max(id),0) as id_min_rule from master_min_rule ";
+        $query = $this->db->query($sql1)->getResult();
+        foreach ($query as $value) {
+                $idminrule=$value->id_min_rule+1;
+        }
+        return $idminrule;
+    }
+
     public function data_rule(){
         $sql="SELECT * from asociation_rule";
 
@@ -233,7 +173,16 @@ class AsosiasiruleModel extends Model
         }
     return $jumlahdata;
     }
+    public function deactivaterule(){
+        $sql="UPDATE master_min_rule set status='non active' where status='active'";
+        return $query=$this->db->query($sql);
 
+    }
+    public function activaterule($id){
+        $sql="UPDATE master_min_rule set status='active' where id=?";
+        return $query=$this->db->query($sql, array($id));
+
+    }
     public function deleterule(){
         $sql="DELETE from asociation_rule";
         return $query=$this->db->query($sql);

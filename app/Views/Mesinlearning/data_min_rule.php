@@ -30,7 +30,7 @@
             <div class="col-12">
                 <div class="card-box">
                     <div class="pb-2">
-                        <a href="" type="button" class="btn btn-primary waves-effect waves-light text-white">
+                        <a href="<?php echo base_url('AsociationRule/tambahminrule') ?>" type="button" class="btn btn-primary waves-effect waves-light text-white">
                             <i class="mdi mdi-plus-thick fa-lg text-white"></i> Tambah
                         </a>
                     </div>
@@ -89,8 +89,89 @@
 </div> <!-- content -->
 
 
+
+    <div id="tambahdatarule" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myCenterModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-primary">
+                    <h4 class="modal-title text-white" id="myCenterModalLabel">Edit Data </h4>
+                    <button type="button" class="close text-white" data-dismiss="modal" aria-hidden="true">×</button>
+                </div>
+                <div class="modal-body"> 
+                   
+                    <?php echo form_open('AsociationRule/simpanminrule', ['class'=>'no-validated']) ?>
+                        <div>
+                                <div class="mb-3">
+                                    <label class="form-label">ID</label>
+                                    <input type="hidden" name="id" value="<?= $idminrule?>">
+                                    <input type="text" class="form-control " id="id" name="id" value="<?= $idminrule ?>" disabled>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Minimal Support</label>
+                                    <input type="text" class="form-control" id="min_sup" name="min_sup" value="<?= set_value('min_sup')?>" autocomplete="off" >
+                                    <div class="invalid-feedback errorminsup">
+                                        
+                                    </div>
+                                </div>
+                         
+
+                            <div class="mb-3">
+                                <label class="form-label">Minimal Confidance</label>
+                                <input type="text" class="form-control" id="min_con" name="min_con" value="<?= set_value('min_con')?>" autocomplete="off" >
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Status</label>
+                                <select name="status" class="form-control select2">
+                                  <option value="0">- - - Pilih Status - - -</option>
+                                  <option value="0">Active</option>
+                                  <option value="0">Non Active</option>
+                                </select>
+                            </div>
+                            <div class="mb-2 mt-1">
+                                <div class="float-right d-none d-sm-block">
+                                    <button href="#" class="btn btn-secondary" data-dismiss="modal"><i class="mdi mdi-close-thick fa-lg"></i> Batal</button>
+                                    <button type="submit" class="btn btn-primary"><i class="mdi mdi-content-save-move fa-lg"></i> Simpan</button>
+                                </div>
+                            </div>
+                        </div>
+                    <?php echo form_close() ?>
+                </div>
+            </div>
+           
+            <!-- /.modal-content -->
+        </div>
+         <script type="text/javascript">
+              $(document).ready(function(){
+                    $('.no-validated').submit(function(e) {
+
+                        e.preventDefault();
+                        $.ajax({
+                            type : "POST",
+                            url : <?php echo base_url('AsociationRule/simpanminrule') ?>,
+                            data :$(this).serialize(),
+                            dataType : "json",
+                            success : function(response) {
+                                if (response.error){
+                                    if (response.error.min_sup){
+                                        $('#min_sup').addClass('is-invalid');
+                                        $('.errorminsup').html(response.errors.min_sup);
+                                    }
+                                }   
+                            }
+                        });
+                        return false;
+                    });
+                });
+            </script>
+        <!-- /.modal-dialog -->
+    </div>
+
+    <!-- /.modal -->
+
+<!-- modal tambah data -->
 <?php foreach ($minrule as $value) : ?>
-    <div id="edit<?= $value->id; ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myCenterModalLabel" aria-hidden="true">
+ <div id="edit<?= $value->id ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myCenterModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header bg-primary">
@@ -142,9 +223,7 @@
         </div>
         <!-- /.modal-dialog -->
     </div>
-    <!-- /.modal -->
 <?php endforeach ?>
-
 <?php foreach ($minrule as $value) : ?>
    
     <?php echo form_open('Asociation/delete_min_rule') ?>

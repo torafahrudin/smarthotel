@@ -27,6 +27,7 @@ class AsociationRule extends BaseController
                      ['Bread', 'Milk', 'Diaper', 'Coke']];
         // REKOMENDASI CONTOH DENGAN NAMA PRODUK
         $labels  = [];
+        $data['minrule']=$this->Asosiasirulemodel->get_minrule_all();
         $samples2=$this->Asosiasirulemodel->data_penjualan_bynamaproduk();
         $data['jumlahdata']=$this->Asosiasirulemodel->jumlah_data($samples2);
         $associator = new Apriori($minsup, $mincon);
@@ -68,8 +69,56 @@ class AsociationRule extends BaseController
         print_r($data['Rules']);
         echo "</pre>";
     }
+    public function tambahminrule(){
+         $data['idminrule']=$this->Asosiasirulemodel->id_min_rule();
+        if( !isset($_POST['id']) and !isset($_POST['min_sup']) and !isset($_POST['min_con'])){
+            //kondisi awal ketika di akses, jadi tidak perlu memanggil validas
+        
+            echo view('Mesinlearning/inputminrule', $data);
+        }
+        else{
+            $validation =  \Config\Services::validation();
+            //di cek dulu apakah data isian memenuhi rules validasi yang dibuat
+            if (! $this->validate(
+                        [
+                            'min_sup' => 'required|is_natural',
+                            'min_con' => 'required|is_natural',
+                        ],
+                                [   // Errors
+                                    'min_sup' => [
+                                        'required' => 'Minimal support tidak boleh kosong',
+                                        'is_natural' => 'Minimal support tidak boleh minus'
+                                    ],
+                                    'min_con' => [
+                                        'required' => 'Minimal Confidance boleh kosong',
+                                        'is_natural' => 'Minimal support tidak boleh minus'
+                                    ], 
+                                   
+                                ]
+                    )
+            ){
+                $data['validation']=$this->validator;
+              echo view('Mesinlearning/inputminrule', $data);
+
+            }else{
+                //blok ini adalah blok jika sukses, yaitu panggil method                                         'is_natural' => 'Minimal support tidak boleh minus'insertData()
+                //panggil metod dari kosan model untuk diinputkan datanya
+                $hasil = $this->Asosiasirulemodel->tambahminrule();
+           
+                return redirect()->to(base_url('AsociationRule/data_min_rule')); 
+            }
+        }
+    }
+
+    public function activateminrule($id){
+        $deactivate=$this->Asosiasirulemodel->deactivaterule();
+        $activate=$this->Asosiasirulemodel->activaterule($id);
+        return redirect()->to(base_url('AsociationRule'));
+       
+    }
     public function data_min_rule(){
         $data['minrule']=$this->Asosiasirulemodel->get_minrule_all();
+        $data['idminrule']=$this->Asosiasirulemodel->id_min_rule();
         echo view('Mesinlearning/data_min_rule', $data);
     }
     
