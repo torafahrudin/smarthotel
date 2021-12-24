@@ -11,16 +11,16 @@ class Home extends BaseController
     {
     }
 
-    function user()
-    {
-        $authenticate = service('authentication');
-        $authenticate->check();
-        return $authenticate->user();
-    }
+//    function user()
+//    {
+//        $authenticate = service('authentication');
+//        $authenticate->check();
+//        return $authenticate->user();
+//    }
 
     public function index()
     {
-        $id = $this->user()->id;
+ //       $id = $this->user()->id;
         $data = [
             'title'         => 'Dashboard',
         ];

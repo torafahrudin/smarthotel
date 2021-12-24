@@ -6,8 +6,6 @@ use App\Controllers\BaseController;
 use \App\Models\Aktiva\PembelianKembaliModel;
 use \App\Models\Aktiva\EoqModel;
 use \App\Models\Aktiva\AktivaTetapModel;
-use \App\Models\Laporan\KartuAssetModel;
-use \App\Models\Laporan\KartuStokModel;
 use \App\Models\CoaModel;
 use \App\Models\VendorModel;
 use \App\Models\Laporan\JurnalModel;
@@ -16,11 +14,8 @@ class PembelianKembali extends BaseController
 {
     protected $pembelianKembaliModel;
     protected $aktivaTetapModel;
-    protected $kartuAssetModel;
-    protected $kartuStokModel;
     protected $eoqModel;
     protected $coaModel;
-    protected $jurnalModel;
     protected $session;
 
     public function __construct()
@@ -29,11 +24,8 @@ class PembelianKembali extends BaseController
         $this->pembelianKembaliModel = new PembelianKembaliModel();
         $this->aktivaTetapModel = new AktivaTetapModel();
         $this->eoqModel = new EoqModel();
-        $this->kartuAssetModel = new KartuAssetModel();
-        $this->kartuStokModel = new KartuStokModel();
         $this->coaModel = new CoaModel();
         $this->vendorModel = new VendorModel();
-        $this->jurnalModel = new JurnalModel();
         $this->session = \Config\Services::session();
     }
 
@@ -64,9 +56,6 @@ class PembelianKembali extends BaseController
         $isDataValid            = $this->validation->withRequest($this->request)->run();
         $originalDate           = $this->request->getPost('tanggal');
         $newDate                = date("Y-m-d", strtotime($originalDate));
-        $id_jurnalD             = $this->jurnalModel->code_jurnal_IDD();
-        $id_jurnalK             = $this->jurnalModel->code_jurnal_IDK();
-        $id_stok                = $this->kartuStokModel->code_stok_IDK();
 
         if ($isDataValid) {
             $nama_aktiva            = $this->pembelianKembaliModel->getNamaAktiva($this->request->getPost('id_aktiva'));
@@ -126,30 +115,30 @@ class PembelianKembali extends BaseController
                 );
             }
 
-            $jurnal = [
-                [
-                    'id_jurnal'     => $id_jurnalD,
-                    'tanggal'       => $newDate,
-                    'id_akun'       => 112,
-                    'nominal'       => $total_perolehan,
-                    'posisi'        => 'd',
-                    'debet'         => $total_perolehan,
-                    'kredit'        => 0,
-                    'reff'          => $code_perolehan,
-                    'transaksi'     => 'Perolehan Aktiva'
-                ],
-                [
-                    'id_jurnal'     => $id_jurnalK,
-                    'tanggal'       => $newDate,
-                    'id_akun'       => 111,
-                    'nominal'       => $total_perolehan,
-                    'posisi'        => 'k',
-                    'debet'         => 0,
-                    'kredit'        => $total_perolehan,
-                    'reff'          => $code_perolehan,
-                    'transaksi'     => 'Perolehan Aktiva'
-                ],
-            ];
+            // $jurnal = [
+            //     [
+            //         'id_jurnal'     => $id_jurnalD,
+            //         'tanggal'       => $newDate,
+            //         'id_akun'       => 112,
+            //         'nominal'       => $total_perolehan,
+            //         'posisi'        => 'd',
+            //         'debet'         => $total_perolehan,
+            //         'kredit'        => 0,
+            //         'reff'          => $code_perolehan,
+            //         'transaksi'     => 'Perolehan Aktiva'
+            //     ],
+            //     [
+            //         'id_jurnal'     => $id_jurnalK,
+            //         'tanggal'       => $newDate,
+            //         'id_akun'       => 111,
+            //         'nominal'       => $total_perolehan,
+            //         'posisi'        => 'k',
+            //         'debet'         => 0,
+            //         'kredit'        => $total_perolehan,
+            //         'reff'          => $code_perolehan,
+            //         'transaksi'     => 'Perolehan Aktiva'
+            //     ],
+            // ];
 
             $kartu = array(
                 'id_stok'                   => $id_stok,
