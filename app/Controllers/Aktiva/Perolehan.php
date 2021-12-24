@@ -8,8 +8,8 @@ use \App\Models\Aktiva\AktivaTetapModel;
 use \App\Models\Aktiva\KelompokModel;
 use \App\Models\CoaModel;
 use \App\Models\VendorModel;
-use \App\Models\Laporan\KartuAssetModel;
-use \App\Models\Laporan\JurnalModel;
+// use \App\Models\Laporan\KartuAssetModel;
+// use \App\Models\Laporan\JurnalModel;
 
 class Perolehan extends BaseController
 {
@@ -18,8 +18,8 @@ class Perolehan extends BaseController
     protected $coaModel;
     protected $vendorModel;
     protected $kelompokModel;
-    protected $kartuAssetModel;
-    protected $jurnalModel;
+    // protected $kartuAssetModel;
+    // protected $jurnalModel;
     protected $session;
 
     public function __construct()
@@ -30,8 +30,8 @@ class Perolehan extends BaseController
         $this->coaModel = new CoaModel();
         $this->vendorModel = new VendorModel();
         $this->kelompokModel = new KelompokModel();
-        $this->kartuAssetModel = new KartuAssetModel();
-        $this->jurnalModel = new JurnalModel();
+        // $this->kartuAssetModel = new KartuAssetModel();
+        // $this->jurnalModel = new JurnalModel();
         $this->session = \Config\Services::session();
     }
 
@@ -85,8 +85,8 @@ class Perolehan extends BaseController
         $jumlah                 = $this->request->getPost('jumlah');
         $originalDate           = $tanggal_perolehan;
         $newDate                = date("Y-m-d", strtotime($originalDate));
-        $id_jurnalD             = $this->jurnalModel->code_jurnal_IDD();
-        $id_jurnalK             = $this->jurnalModel->code_jurnal_IDK();
+        // $id_jurnalD             = $this->jurnalModel->code_jurnal_IDD();
+        // $id_jurnalK             = $this->jurnalModel->code_jurnal_IDK();
 
 
         if ($isDataValid) {
@@ -189,9 +189,9 @@ class Perolehan extends BaseController
             $this->perolehanModel->createPerolehanDetail($data_detail_perolehan);
             $this->perolehanModel->createPerolehan($data_perolehan);
             $this->aktivaTetapModel->createAktivaTetap($data_aktiva);
-            $this->kartuAssetModel->createPenyusutanBulanPertama($bulan_pertama);
-            $this->kartuAssetModel->createPenyusutanBulanSelanjutnya($bulan_selanjutnya);
-            $this->jurnalModel->createOrderJurnal($jurnal);
+            // $this->kartuAssetModel->createPenyusutanBulanPertama($bulan_pertama);
+            // $this->kartuAssetModel->createPenyusutanBulanSelanjutnya($bulan_selanjutnya);
+            // $this->jurnalModel->createOrderJurnal($jurnal);
             session()->setFlashdata('success', 'Data Perolehan Berhasil Ditambahkan');
             return redirect()->to('/aktiva/perolehan/add_detail');
         }
