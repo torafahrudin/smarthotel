@@ -89,7 +89,7 @@
         </li>
 
         <li>
-            <h4 class="page-title-main"><?= $title; ?></h4>
+            <h4 class="page-title-main"></h4>
         </li>
 
     </ul>

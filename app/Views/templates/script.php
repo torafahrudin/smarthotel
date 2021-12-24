@@ -134,27 +134,7 @@
 </script>
 
 <script type="text/javascript">
-    <?php if (session()->getFlashdata('success')) { ?>
-        toastr.options.closeButton = true;
-        toastr.options.progressBar = true;
-        toastr.options.positionClass = 'toast-top-right';
-        toastr.success("<?= session()->getFlashdata('success'); ?>");
-    <?php } else if (session()->getFlashdata('error')) {  ?>
-        toastr.options.closeButton = true;
-        toastr.options.progressBar = true;
-        toastr.options.positionClass = 'toast-top-right';
-        toastr.error("<?= session()->getFlashdata('error'); ?>");
-    <?php } else if (session()->getFlashdata('warning')) {  ?>
-        toastr.options.closeButton = true;
-        toastr.options.progressBar = true;
-        toastr.options.positionClass = 'toast-top-right';
-        toastr.warning("<?= session()->getFlashdata('warning'); ?>");
-    <?php } else if (session()->getFlashdata('info')) {  ?>
-        toastr.options.closeButton = true;
-        toastr.options.progressBar = true;
-        toastr.options.positionClass = 'toast-top-right';
-        toastr.info("<?= session()->getFlashdata('info'); ?>");
-    <?php } ?>
+  
 </script>
 
 <script type='text/javascript'>
