@@ -50,6 +50,7 @@ class EoqModel extends Model
         $builder->orderBy('id', 'desc');
         $builder->limit(1);
         $query   = $builder->get()->getResultArray();
+        $eoq = 0;
         foreach ($query as $data) {
             $eoq   = $data['eoq'];
         }
