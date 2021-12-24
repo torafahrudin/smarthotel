@@ -35,7 +35,7 @@
                         Input Data Perolehan Aktiva
                     </div>
                     <div class="card-body">
-                        <form action="<?= base_url('aktiva/pembeliankembali/add') ?>" method="POST" class="no-validated">
+                        <form action="<?= base_url('aktiva/pembelianKembali/add') ?>" method="POST" class="no-validated">
                             <?= csrf_field(); ?>
                             <div class="form-row">
                                 <div class="form-group col-md-3">
@@ -99,7 +99,7 @@
             <div class="col-12">
                 <div class="card-box">
                     <div class="pb-2 float-right">
-                        <a href="<?= base_url('aktiva/pembeliankembali/selesai') ?>" class="btn btn-success waves-effect waves-light text-white">
+                        <a href="<?= base_url('aktiva/pembelianKembali/selesai') ?>" class="btn btn-success waves-effect waves-light text-white">
                             <i class="mdi mdi-content-save-all fa-lg text-white"></i> Selesai
                         </a>
                     </div>

@@ -28,7 +28,7 @@
         <!-- end page title -->
 
         <!-- Form row -->
-        <form action="<?= base_url('aktiva/pembeliankembali/addNilai') ?>" method="POST" class="no-validated">
+        <form action="<?= base_url('aktiva/pembelianKembali/addNilai') ?>" method="POST" class="no-validated">
             <div class="row">
                 <div class="col-md-4">
                     <div class="card">
@@ -66,7 +66,7 @@
                         Input Data Perhitungan ROP
                     </div>
                     <div class="card-body">
-                        <form action="<?= base_url('aktiva/pembeliankembali/rop') ?>" method="POST" class="no-validated">
+                        <form action="<?= base_url('aktiva/pembelianKembali/rop') ?>" method="POST" class="no-validated">
 
                             <?= csrf_field(); ?>
                             <div class="form-row">
