@@ -21,9 +21,11 @@ class KehadiranModel extends Model
 
     public function getKehadiran()
     {
-        $sql = "SELECT count(*) FROM trans_detail_kehadiran Group by nama ";
-        $dbResult = $this->db->query($sql);
-        return $dbResult->getResult();
+        
+        $this->db->count_all_results('trans_detail_kehadiran');
+        $this->db->groupBy('nama');
+        $this->db->from('trans_detail_kehadiran');
+        $this->db->count_all_results();
     }
 
     public function getById($id)

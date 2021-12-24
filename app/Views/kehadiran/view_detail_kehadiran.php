@@ -28,27 +28,29 @@
 
         <div class="container mt-3">
 		<?php
-		if(session()->getFlashdata('message')){
+		if(session()->getFlashData('message')){
 		?>
-			<div class="alert alert-info">
-				<?= session()->getFlashdata('message') ?>
-			</div>
+		<div class="alert alert-success alert-dismissible fade show" role="alert">
+	        <?= session()->getFlashData('message') ?>
+	        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+	        <span aria-hidden="true">&times;</span>
+	      </button>
+	    </div>
 		<?php
 		}
 		?>
-        <div class="row">
-            <div class="col-12">
-                <div class="card-box">
-                    <div class="pb-2">
-                    <form method="post" action="/kehadiran/simpanExcel" enctype="multipart/form-data">
-                    <input type="file" name="fileexcel" class="dropify" data-height="75" id="file" required accept=".xls, .xlsx" /></p>
-                    </div>
-                    <div class="form-group">
-				<button class="btn btn-primary" type="submit">Upload</button>
+		<form method="post" action="<?= base_url('kehadiran/simpanExcel') ?>" enctype="multipart/form-data">
+			<div class="form-group">
+				<label for="">File Excel</label>
+				<input type="file" name="fileexcel" class="form form-control" data-height="75" id="file" required accept=".xls, .xlsx">
 			</div>
-                </div>
-            </div>
-        </div> <!-- end row -->
+			<div class="form-group">
+				<button type="submit" class="btn btn-primary">Upload</button>
+			</div>
+		</form>
+	</div>
+
+         <!-- end row -->
 
         
 
