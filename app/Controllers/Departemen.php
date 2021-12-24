@@ -30,16 +30,7 @@ class Departemen extends BaseController
             'title'                 => 'Tambah Data Departemen',
             'id_departemen'           => $this->departemenModel->code_departemen_ID(),
         ];
-        return view('departemen/add_data_departemen', $data);
-    }
-
-    public function create()
-    {
-        $data = [
-            'title'                 => 'Tambah Data Departemen',
-            'id_departemen'           => $this->departemenModel->code_departemen_ID(),
-        ];
-        $this->validation->setRules($this->departemenModel->rules());
+        $this->validation->setRules(['nama_departemen' => 'required']);
         $isDataValid = $this->validation->withRequest($this->request)->run();
 
         if ($isDataValid) {
@@ -47,51 +38,43 @@ class Departemen extends BaseController
                 'id_departemen' => $this->departemenModel->code_departemen_ID(),
                 'nama_departemen' => $this->request->getPost('nama_departemen'),
                 'keterangan' => $this->request->getPost('keterangan'),
+                // 'no_telp' => $this->request->getPost('no_telp'),
+                // 'email' => $this->request->getPost('email'),
+                // 'alamat' => $this->request->getPost('alamat'),
             );
             $this->departemenModel->createDepartemen($data);
             session()->setFlashdata('success', 'Data Departemen Berhasil Ditambahkan');
             return redirect()->to('/departemen');
-        } else {
-            $data['validation'] = $this->validation;
-            return view('departemen/add_data_departemen', $data);
         }
+
+        return view('departemen/add_data_departemen', $data);
     }
 
     public function edit($id_departemen)
     {
         $data = [
             'title'                 => 'Edit Data Departemen',
-            'departemen'            => $this->departemenModel->where('id_departemen', $id_departemen)->first(),
-            'validation'            => $this->validation->setRules($this->departemenModel->rules())
-        ];
-
-        return view('departemen/edit_data_departemen', $data);
-    }
-
-    public function update($id_departemen)
-    {
-        $data = [
-            'title'                 => 'Edit Data Departemen',
             'departemen'              => $this->departemenModel->where('id_departemen', $id_departemen)->first()
         ];
-
-        $this->validation->setRules($this->departemenModel->rules());
+        $this->validation->setRules(['nama_departemen' => 'required']);
         $isDataValid = $this->validation->withRequest($this->request)->run();
 
         if ($isDataValid) {
             $data = array(
                 'nama_departemen' => $this->request->getPost('nama_departemen'),
                 'keterangan' => $this->request->getPost('keterangan'),
+                // 'no_telp' => $this->request->getPost('no_telp'),
+                // 'email' => $this->request->getPost('email'),
+                // 'alamat' => $this->request->getPost('alamat'),
             );
-
             $this->departemenModel->updateDepartemen($data, $id_departemen);
             session()->setFlashdata('success', 'Data Departemen Berhasil Diubah');
 
             return redirect()->to('/departemen');
-        } else {
-            $data['validation'] = $this->validation;
-            return view('departemen/edit_data_departemen', $data);
         }
+        // dd($data);
+
+        return view('departemen/edit_data_departemen', $data);
     }
 
     public function delete()

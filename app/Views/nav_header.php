@@ -52,7 +52,7 @@
                                 </a>
                             </div>
                             <div class="gem-points">
-                                <a href="checkout" class="text-light-yellow fw-500 fs-18">> <i class="fas fa-credit-card"></i>
+                                <a href="checkout" class="text-light-yellow fw-500 fs-18">> 
                                     <span>Payment</span>
                                 </a>
                             </div>
