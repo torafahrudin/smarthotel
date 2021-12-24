@@ -65,6 +65,9 @@
 <!-- Notif js -->
 <script src="<?= base_url(); ?>/assets/toastr/toastr.min.js"></script>
 
+
+
+
 <script>
     $('#table_detail').dataTable({
         "lengthChange": false,
@@ -98,13 +101,16 @@
     $(".choose_date").datepicker({
         format: 'dd-mm-yyyy ',
         autoclose: true,
-        locale: 'id'
+        locale: 'id',
+        todayHighlight: true,
+        orientation: 'bottom'
     });
     $(".choose_month").datepicker({
         format: "dd-mm-yyyy",
         startView: "months",
         minViewMode: "months",
         autoclose: true,
+        orientation: 'bottom'
     });
     $(".eoqMonth").datepicker({
         format: "yyyy-mm-dd",
@@ -114,17 +120,54 @@
         orientation: 'bottom'
     });
     $(document).ready(function() {
-        $('#report').DataTable();
+        $('#report').DataTable({
+            "pageLength": 100
+        });
     });
     $(document).ready(function() {
         $('#users').DataTable({
             order: [
-                [3, 'asc']
+                [3, 'desc']
             ]
         });
     });
 </script>
 
 <script type="text/javascript">
-    
+  
+</script>
+
+<script type='text/javascript'>
+    $(document).ready(function() {
+        $(".pointeoq").hide();
+        $('#choose_aktiva').change(function() {
+            var id_aktiva = $(this).val();
+            var tanggal = $('#tanggal').val();
+            // AJAX request
+            $.ajax({
+                url: '<?= base_url() ?>/aktiva/pembeliankembali/fetch_eoq',
+                method: 'post',
+                data: {
+                    id_aktiva: id_aktiva,
+                    tanggal: tanggal
+                },
+                dataType: 'json',
+                success: function(response) {
+                    $(".pointeoq").show();
+                    $('#dataeoq').html(response);
+                }
+            });
+        });
+    });
+
+    function hitung() {
+        masa_manfaat = $('#masa_manfaat').val();
+        garis_lurus = $('#garis_lurus').val();
+        nilai_garis_lurus = 100 / masa_manfaat;
+        if (nilai_garis_lurus == Number.POSITIVE_INFINITY || nilai_garis_lurus == Number.NEGATIVE_INFINITY) {
+            nilai_garis_lurus = 0;
+        }
+        $('#garis_lurus').val(nilai_garis_lurus);
+        console.log(nilai_garis_lurus);
+    }
 </script>
