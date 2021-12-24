@@ -16,8 +16,8 @@
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="/">Home</a></li>
-                            <li class="breadcrumb-item"><a href="/aktiva/pembeliankembali">Data Pembelian Kembali</a></li>
+                            <li class="breadcrumb-item"><a href="<?= base_url() ?>">Home</a></li>
+                            <li class="breadcrumb-item"><a href="<?= base_url('aktiva/pembeliankembali') ?>">Data Pembelian Kembali</a></li>
                             <li class="breadcrumb-item active">Input Data Perhitungan</li>
                         </ol>
                     </div>

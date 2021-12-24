@@ -15,7 +15,7 @@
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">Home</a></li>
+                            <li class="breadcrumb-item"><a href="<?= base_url() ?>">Home</a></li>
                             <li class="breadcrumb-item active">Data Aktiva Tetap</li>
                         </ol>
                     </div>
@@ -29,7 +29,7 @@
             <div class="col-12">
                 <div class="card-box">
                     <div class="pb-2">
-                        <a href="/aktiva/perolehan/add" class="btn btn-primary waves-effect waves-light text-white">
+                        <a href="<?= base_url('aktiva/perolehan/add') ?>" class="btn btn-primary waves-effect waves-light text-white">
                             <i class="mdi mdi-plus-thick fa-lg text-white"></i> Tambah
                         </a>
                     </div>

@@ -16,8 +16,8 @@
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="/">Home</a></li>
-                            <li class="breadcrumb-item"><a href="/receptionist">Data Receptionist</a></li>
+                            <li class="breadcrumb-item"><a href="<?= base_url() ?>">Home</a></li>
+                            <li class="breadcrumb-item"><a href="<?= base_url('aktiva/aktivaTetap') ?>">Data Receptionist</a></li>
                             <li class="breadcrumb-item active">Edit Data Receptionist</li>
                         </ol>
                     </div>
@@ -32,10 +32,10 @@
             <div class="col-md-12 mx-auto">
                 <div class="card">
                     <div class="card-header header-title bg-primary text-white">
-                        Edit Data Receptionist
+                        Edit Data Aktiva Tetap
                     </div>
                     <div class="card-body">
-                        <form action="<?= base_url('receptionist/edit/' . $receptionist['id_receptionist']) ?>" method="POST" class="no-validated">
+                        <form action="<?= base_url() ?>" method="POST" class="no-validated">
                             <?= csrf_field(); ?>
                             <input type="hidden" class="form-control" name="id_receptionist" value="<?= $receptionist['id_receptionist'] ?>">
                             <input type="hidden" class="form-control" name="id_pegawai" value="<?= $receptionist['id_pegawai'] ?>">

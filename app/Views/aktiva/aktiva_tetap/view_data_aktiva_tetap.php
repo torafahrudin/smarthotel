@@ -77,7 +77,7 @@
 </div> <!-- content -->
 
 <?php foreach ($aktiva_tetap as $aktiva) : ?>
-    <form action="aktivaTetap/delete" method="post">
+    <form action="<?= base_url('aktiva/aktivaTetap/delete') ?>" method="post">
         <div id="delete<?php echo $aktiva['id_aktiva']; ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">

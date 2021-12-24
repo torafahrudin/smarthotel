@@ -99,7 +99,7 @@
             <div class="col-12">
                 <div class="card-box">
                     <div class="pb-2 float-right">
-                        <a href="/aktiva/pembeliankembali/selesai" class="btn btn-success waves-effect waves-light text-white">
+                        <a href="<?= base_url('aktiva/pembeliankembali/selesai') ?>" class="btn btn-success waves-effect waves-light text-white">
                             <i class="mdi mdi-content-save-all fa-lg text-white"></i> Selesai
                         </a>
                     </div>

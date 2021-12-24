@@ -15,8 +15,8 @@
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="/">Home</a></li>
-                            <li class="breadcrumb-item"><a href="/aktiva/perolehan">Data Perolehan</a></li>
+                            <li class="breadcrumb-item"><a href="<?= base_url() ?>">Home</a></li>
+                            <li class="breadcrumb-item"><a href="<?= base_url('aktiva/perolehan') ?>">Data Perolehan</a></li>
                             <li class="breadcrumb-item active">Tambah Data Perolehan</li>
                         </ol>
                     </div>
@@ -40,7 +40,7 @@
                                 <div class="form-group col-md-4">
                                     <label for="tanggal" class="col-form-label">Tanggal</label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control choose_date" placeholder="Pilih Tanggal"  name="tanggal" autocomplete="off">
+                                        <input type="text" class="form-control choose_date" placeholder="Pilih Tanggal" name="tanggal" autocomplete="off">
                                         <div class="input-group-append">
                                             <span class="input-group-text"><i class="ti-calendar"></i></span>
                                         </div>
