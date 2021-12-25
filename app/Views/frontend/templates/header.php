@@ -15,23 +15,23 @@
     <link rel="apple-touch-icon-precomposed" href="#">
     <link rel="shortcut icon" href="#">
     <!-- Bootstrap -->
-    <link href="<?= base_url(); ?>/assets_frontend/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?= base_url(); ?>assets_frontend/css/bootstrap.min.css" rel="stylesheet">
     <!-- Fontawesome -->
-    <link href="<?= base_url(); ?>/assets_frontend/css/font-awesome.css" rel="stylesheet">
+    <link href="<?= base_url(); ?>assets_frontend/css/font-awesome.css" rel="stylesheet">
     <!-- Flaticons -->
-    <link href="<?= base_url(); ?>/assets_frontend/css/font/flaticon.css" rel="stylesheet">
+    <link href="<?= base_url(); ?>assets_frontend/css/font/flaticon.css" rel="stylesheet">
     <!-- Swiper Slider -->
-    <link href="<?= base_url(); ?>/assets_frontend/css/swiper.min.css" rel="stylesheet">
+    <link href="<?= base_url(); ?>assets_frontend/css/swiper.min.css" rel="stylesheet">
     <!-- Range Slider -->
-    <link href="<?= base_url(); ?>/assets_frontend/css/ion.rangeSlider.min.css" rel="stylesheet">
+    <link href="<?= base_url(); ?>assets_frontend/css/ion.rangeSlider.min.css" rel="stylesheet">
     <!-- magnific popup -->
-    <link href="<?= base_url(); ?>/assets_frontend/css/magnific-popup.css" rel="stylesheet">
+    <link href="<?= base_url(); ?>assets_frontend/css/magnific-popup.css" rel="stylesheet">
     <!-- Nice Select -->
-    <link href="<?= base_url(); ?>/assets_frontend/css/nice-select.css" rel="stylesheet">
+    <link href="<?= base_url(); ?>assets_frontend/css/nice-select.css" rel="stylesheet">
     <!-- Custom Stylesheet -->
-    <link href="<?= base_url(); ?>/assets_frontend/css/style.css" rel="stylesheet">
+    <link href="<?= base_url(); ?>assets_frontend/css/style.css" rel="stylesheet">
     <!-- Custom Responsive -->
-    <link href="<?= base_url(); ?>/assets_frontend/css/responsive.css" rel="stylesheet">
+    <link href="<?= base_url(); ?>assets_frontend/css/responsive.css" rel="stylesheet">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&amp;display=swap" rel="stylesheet">
     <!-- place -->
