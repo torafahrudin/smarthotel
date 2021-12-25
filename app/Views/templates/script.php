@@ -79,6 +79,9 @@
         "searching": false,
         "info": false,
     });
+    $("input[name='kamar']").TouchSpin({
+        initval: 0
+    });
     $("input[name='dewasa']").TouchSpin({
         initval: 0
     });
@@ -134,7 +137,7 @@
 </script>
 
 <script type="text/javascript">
-  
+
 </script>
 
 <script type='text/javascript'>

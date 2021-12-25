@@ -5,14 +5,14 @@ namespace App\Controllers;
 use \App\Models\OrderRoomModel;
 use \App\Models\CustomerModel;
 use \App\Models\RoomModel;
-use \App\Models\Laporan\JurnalModel;
+// use \App\Models\Laporan\JurnalModel;
 
 class Order extends BaseController
 {
     protected $orderRoomModel;
     protected $customerModel;
     protected $roomModel;
-    protected $jurnalModel;
+    // protected $jurnalModel;
 
     public function __construct()
     {
@@ -20,7 +20,7 @@ class Order extends BaseController
         $this->orderRoomModel = new OrderRoomModel();
         $this->customerModel = new CustomerModel();
         $this->roomModel = new RoomModel();
-        $this->jurnalModel = new JurnalModel();
+        // $this->jurnalModel = new JurnalModel();
     }
 
     public function index()
@@ -149,8 +149,8 @@ class Order extends BaseController
         $id_kamar = $this->request->getPost('id_kamar');
         $checkin = $this->request->getPost('checkin');
         $checkout = $this->request->getPost('checkout');
-        $id_jurnalD = $this->jurnalModel->code_jurnal_IDD();
-        $id_jurnalK = $this->jurnalModel->code_jurnal_IDK();
+        // $id_jurnalD = $this->jurnalModel->code_jurnal_IDD();
+        // $id_jurnalK = $this->jurnalModel->code_jurnal_IDK();
         $diff = abs(strtotime($checkout) - strtotime($checkin));
         $years   = floor($diff / (365 * 60 * 60 * 24));
         $months  = floor(($diff - $years * 365 * 60 * 60 * 24) / (30 * 60 * 60 * 24));
@@ -161,34 +161,34 @@ class Order extends BaseController
         $data = array(
             'status_order' => 'Checkin'
         );
-        $jurnal = [
-            [
-                'id_jurnal' => $id_jurnalD,
-                'tanggal' => $date,
-                'id_akun' => 111,
-                'nominal' => $total_price,
-                'posisi' => 'd',
-                'debet' => $total_price,
-                'kredit' => 0,
-                'reff' => $id,
-                'transaksi' => 'Checkin'
-            ],
-            [
-                'id_jurnal' => $id_jurnalK,
-                'tanggal' => $date,
-                'id_akun' => 412,
-                'nominal' => $total_price,
-                'posisi' => 'k',
-                'debet' => 0,
-                'kredit' => $total_price,
-                'reff' => $id,
-                'transaksi' => 'Checkin'
-            ],
-        ];
+        // $jurnal = [
+        //     [
+        //         'id_jurnal' => $id_jurnalD,
+        //         'tanggal' => $date,
+        //         'id_akun' => 111,
+        //         'nominal' => $total_price,
+        //         'posisi' => 'd',
+        //         'debet' => $total_price,
+        //         'kredit' => 0,
+        //         'reff' => $id,
+        //         'transaksi' => 'Checkin'
+        //     ],
+        //     [
+        //         'id_jurnal' => $id_jurnalK,
+        //         'tanggal' => $date,
+        //         'id_akun' => 412,
+        //         'nominal' => $total_price,
+        //         'posisi' => 'k',
+        //         'debet' => 0,
+        //         'kredit' => $total_price,
+        //         'reff' => $id,
+        //         'transaksi' => 'Checkin'
+        //     ],
+        // ];
 
         // dd($id_kamar, $id, $price, $checkin, $checkout, $days, $total_price, $jurnal);
         $this->orderRoomModel->updateOrderCheckin($data, $id);
-        $this->jurnalModel->createOrderJurnal($jurnal);
+        // $this->jurnalModel->createOrderJurnal($jurnal);
 
         session()->setFlashdata('success', 'Data Customer Berhasil Checkin');
 

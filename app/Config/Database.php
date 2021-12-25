@@ -33,6 +33,9 @@ class Database extends Config
     public $default = [
         'DSN'      => '',
         'hostname' => 'localhost',
+        // 'username' => 'root',
+        // 'password' => '',
+        // 'database' => 'rnds9264_smarthotel',
         'username' => 'rnds9264_smarthotel_user',
         'password' => '#C.oE6!zpo@x',
         'database' => 'rnds9264_smarthotel',
