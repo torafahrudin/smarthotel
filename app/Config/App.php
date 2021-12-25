@@ -23,9 +23,9 @@ class App extends BaseConfig
      *
      * @var string
      */
-    // public $baseURL = 'http://localhost:8080/';
+    public $baseURL = 'http://localhost:8080/';
     // public $baseURL = 'https://rndsmarthotel.com/tessmarthotel/';
-    public $baseURL = 'https://rndsmarthotel.com/smarthotel/';
+    // public $baseURL = 'https://rndsmarthotel.com/smarthotel/';
 
     /**
      * --------------------------------------------------------------------------

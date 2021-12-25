@@ -33,7 +33,7 @@
                      </div>
                      <div class="right-side fw-700 mainNavCol">
                          <div class="gem-points">
-                             <a href="<?= base_url(); ?>login">
+                             <a href="<?= base_url('login'); ?>">
                                  <i class="flaticon-user"></i>
                                  <span>Login</span>
                              </a>

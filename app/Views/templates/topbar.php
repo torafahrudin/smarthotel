@@ -51,7 +51,7 @@
                 <div class="dropdown-divider"></div>
 
                 <!-- item-->
-                <a href="/logout" class="dropdown-item notify-item">
+                <a href="<?= base_url('logout'); ?>" class="dropdown-item notify-item">
                     <i class="fe-log-out"></i>
                     <span>Logout</span>
                 </a>
