@@ -18,23 +18,23 @@
     <link rel="apple-touch-icon-precomposed" href="#">
     <link rel="shortcut icon" href="#">
     <!-- Bootstrap -->
-    <link href="assets_frontend/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?= base_url(); ?>/assets_frontend/css/bootstrap.min.css" rel="stylesheet">
     <!-- Fontawesome -->
-    <link href="assets_frontend/css/font-awesome.css" rel="stylesheet">
+    <link href="<?= base_url(); ?>/assets_frontend/css/font-awesome.css" rel="stylesheet">
     <!-- Flaticons -->
-    <link href="assets_frontend/css/font/flaticon.css" rel="stylesheet">
+    <link href="<?= base_url(); ?>/assets_frontend/css/font/flaticon.css" rel="stylesheet">
     <!-- Swiper Slider -->
-    <link href="assets_frontend/css/swiper.min.css" rel="stylesheet">
+    <link href="<?= base_url(); ?>/assets_frontend/css/swiper.min.css" rel="stylesheet">
     <!-- Range Slider -->
-    <link href="assets_frontend/css/ion.rangeSlider.min.css" rel="stylesheet">
+    <link href="<?= base_url(); ?>/assets_frontend/css/ion.rangeSlider.min.css" rel="stylesheet">
     <!-- magnific popup -->
-    <link href="assets_frontend/css/magnific-popup.css" rel="stylesheet">
+    <link href="<?= base_url(); ?>/assets_frontend/css/magnific-popup.css" rel="stylesheet">
     <!-- Nice Select -->
-    <link href="assets_frontend/css/nice-select.css" rel="stylesheet">
+    <link href="<?= base_url(); ?>/assets_frontend/css/nice-select.css" rel="stylesheet">
     <!-- Custom Stylesheet -->
-    <link href="assets_frontend/css/style.css" rel="stylesheet">
+    <link href="<?= base_url(); ?>/assets_frontend/css/style.css" rel="stylesheet">
     <!-- Custom Responsive -->
-    <link href="assets_frontend/css/responsive.css" rel="stylesheet">
+    <link href="<?= base_url(); ?>/assets_frontend/css/responsive.css" rel="stylesheet">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&amp;display=swap" rel="stylesheet">
     <!-- place -->
@@ -46,7 +46,7 @@
             <div class="row no-gutters overflow-auto">
                 <div class="col-md-6">
                     <div class="main-banner">
-                        <img src="assets_frontend/img/banner/banner-1.jpeg" class="img-fluid full-width main-img" alt="banner">
+                        <img src="<?= base_url(); ?>/assets_frontend/img/banner/banner-1.jpeg" class="img-fluid full-width main-img" alt="banner">
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -99,25 +99,25 @@
     </div>
     <!-- Place all Scripts Here -->
     <!-- jQuery -->
-    <script src="assets_frontend/js/jquery.min.js"></script>
+    <script src="<?= base_url(); ?>/assets_frontend/js/jquery.min.js"></script>
     <!-- Popper -->
-    <script src="assets_frontend/js/popper.min.js"></script>
+    <script src="<?= base_url(); ?>/assets_frontend/js/popper.min.js"></script>
     <!-- Bootstrap -->
-    <script src="assets_frontend/js/bootstrap.min.js"></script>
+    <script src="<?= base_url(); ?>/assets_frontend/js/bootstrap.min.js"></script>
     <!-- Range Slider -->
-    <script src="assets_frontend/js/ion.rangeSlider.min.js"></script>
+    <script src="<?= base_url(); ?>/assets_frontend/js/ion.rangeSlider.min.js"></script>
     <!-- Swiper Slider -->
-    <script src="assets_frontend/js/swiper.min.js"></script>
+    <script src="<?= base_url(); ?>/assets_frontend/js/swiper.min.js"></script>
     <!-- Nice Select -->
-    <script src="assets_frontend/js/jquery.nice-select.min.js"></script>
+    <script src="<?= base_url(); ?>/assets_frontend/js/jquery.nice-select.min.js"></script>
     <!-- magnific popup -->
-    <script src="assets_frontend/js/jquery.magnific-popup.min.js"></script>
+    <script src="<?= base_url(); ?>/assets_frontend/js/jquery.magnific-popup.min.js"></script>
     <!-- Maps -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnd9JwZvXty-1gHZihMoFhJtCXmHfeRQg"></script>
     <!-- sticky sidebar -->
-    <script src="assets_frontend/js/sticksy.js"></script>
+    <script src="<?= base_url(); ?>/assets_frontend/js/sticksy.js"></script>
     <!-- Munch Box Js -->
-    <script src="assets_frontend/js/munchbox.js"></script>
+    <script src="<?= base_url(); ?>/assets_frontend/js/munchbox.js"></script>
     <!-- /Place all Scripts Here -->
 </body>
 
