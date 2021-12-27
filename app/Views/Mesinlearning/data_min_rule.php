@@ -68,7 +68,7 @@
                                                 <td class="d-print-none text-center">
                                                     <?php if($value->status=='active') {?>
                                                         <p>Min support & Min Confidance are active</p>
-                                                    <?php }else if { ?>
+                                                    <?php }else {?>
                                                         <a type="button" data-toggle="modal" data-target="#edit<?= $value->id; ?>"><i class="mdi mdi-pencil fa-lg text-warning"></i></a>
                                                         <a type="button" data-toggle="modal" data-target="#delete<?= $value->id; ?>">
                                                             <i class="mdi mdi-trash-can fa-lg text-danger"></i>
