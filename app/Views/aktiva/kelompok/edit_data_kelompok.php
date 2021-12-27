@@ -15,8 +15,8 @@
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="/">Home</a></li>
-                            <li class="breadcrumb-item"><a href="/receptionist">Data Receptionist</a></li>
+                            <li class="breadcrumb-item"><a href="<?= base_url() ?>">Home</a></li>
+                            <li class="breadcrumb-item"><a href="<?= base_url('aktiva/kelompok') ?>">Data Receptionist</a></li>
                             <li class="breadcrumb-item active">Tambah Data Receptionist</li>
                         </ol>
                     </div>
@@ -34,7 +34,7 @@
                         Input Data Kelompok Aktiva
                     </div>
                     <div class="card-body">
-                        <form action="<?= site_url('aktiva/kelompok/update/' . $kelompok['id_kelompok']) ?>" method="POST" class="no-validated">
+                        <form action="<?= base_url('aktiva/kelompok/update/' . $kelompok['id_kelompok']) ?>" method="POST" class="no-validated">
                             <input type="hidden" name="id_kelompok" value="<?= $kelompok['id_kelompok'] ?>">
                             <div>
                                 <div class="form-row">
@@ -62,7 +62,7 @@
                                 </div>
                                 <div class="mb-2 mt-1">
                                     <div class="float-left d-none d-sm-block">
-                                        <button href="#" class="btn btn-secondary" data-dismiss="modal"><i class="mdi mdi-close-thick fa-lg"></i> Batal</button>
+                                        <button href="<?= base_url('aktiva/kelompok') ?>" class="btn btn-secondary" data-dismiss="modal"><i class="mdi mdi-close-thick fa-lg"></i> Batal</button>
                                         <button type="submit" class="btn btn-primary"><i class="mdi mdi-content-save-move fa-lg"></i> Simpan</button>
                                     </div>
                                 </div>

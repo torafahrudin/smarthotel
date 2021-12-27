@@ -19,6 +19,8 @@
     <link href="<?= base_url(); ?>/assets/libs/bootstrap-timepicker/bootstrap-timepicker.min.css" rel="stylesheet">
     <link href="<?= base_url(); ?>/assets/libs/bootstrap-datepicker/bootstrap-datepicker.css" rel="stylesheet">
     <link href="<?= base_url(); ?>/assets/libs/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    <link href="<?= base_url(); ?>/assets/libs/dropify/dropify.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" rel="stylesheet" type="text/css" />
     <!-- form css end-->
 
     <!-- Responsive Table css -->
@@ -39,6 +41,12 @@
     <link href="<?= base_url(); ?>/assets/css/app.min.css" id="app-stylesheet" rel="stylesheet" type="text/css" />
 
     <link href="<?= base_url(); ?>/assets/toastr/toastr.min.css" rel="stylesheet">
+    <style>
+        .card-horizontal {
+            display: flex;
+            flex: 1 1 auto;
+        }
+    </style>
 
 
 </head>

@@ -15,7 +15,7 @@
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">Home</a></li>
+                            <li class="breadcrumb-item"><a href="<?= base_url() ?>">Home</a></li>
                             <li class="breadcrumb-item active">Data Aktiva Tetap</li>
                         </ol>
                     </div>
@@ -29,7 +29,7 @@
             <div class="col-12">
                 <div class="card-box">
                     <div class="pb-2">
-                        <a href="/aktiva/perolehan/add" class="btn btn-primary waves-effect waves-light text-white">
+                        <a href="<?= base_url('aktiva/perolehan/add') ?>" class="btn btn-primary waves-effect waves-light text-white">
                             <i class="mdi mdi-plus-thick fa-lg text-white"></i> Tambah
                         </a>
                     </div>
@@ -48,7 +48,7 @@
                                             <th class="text-center">Jumlah</th>
                                             <th class="text-right">Total Perolehan</th>
                                             <th class="text-center">Masa Manfaat</th>
-                                            <th class="text-center">Nilai Residu </th>
+                                            <!-- <th class="text-center">Nilai Residu </th> -->
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -62,7 +62,7 @@
                                                 <td class="text-center"><?= $data['jumlah'] ?> Unit</td>
                                                 <td class="text-right"><?= nominal($data['harga_perolehan'] * $data['jumlah']) ?></td>
                                                 <td class="text-center"><?= $data['masa_manfaat'] ?> Tahun</td>
-                                                <td class="text-right"><?= nominal($data['estimasi_nilai_residu']) ?></td>
+                                                <!-- <td class="text-right"><?= nominal($data['estimasi_nilai_residu']) ?></td> -->
                                             </tr>
                                         <?php endforeach; ?>
                                     </tbody>

@@ -14,7 +14,7 @@
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">Home</a></li>
+                            <li class="breadcrumb-item"><a href="<?= base_url() ?>">Home</a></li>
                             <li class="breadcrumb-item active">Data BHP</li>
                         </ol>
                     </div>
@@ -81,7 +81,7 @@
 </div> <!-- content -->
 
 <?php foreach ($bhp as $aktiva) : ?>
-    <form action="aktivaTetap/delete" method="post">
+    <form action="<?= base_url('aktivaTetap/delete') ?>" method="post">
         <div id="delete<?php echo $aktiva['id_aktiva']; ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">

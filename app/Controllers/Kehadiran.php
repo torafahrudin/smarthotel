@@ -131,13 +131,13 @@ class Kehadiran extends BaseController
             $db = \Config\Database::connect();
             $nama = 'sasa';
             $tgl = 'desember';
-            $jml_hadir = '2';
+            //$jml_hadir = $this->kehadiranModel->getKehadiran();
 
                 $data = array(
                     
-                    'id_pegawai' => $this->request->getPost('id_pegawai'),
-                    'bulan' => $tgl,
-                    'jumlah_kehadiran' => $jml_hadir
+                    'id_pegawai' => 'PGW-01',
+                    'bulan' => '2021-12-01',
+                    'jumlah_kehadiran' => '5'
                 );
                 $db->table('kehadiran')->insert($data);
 

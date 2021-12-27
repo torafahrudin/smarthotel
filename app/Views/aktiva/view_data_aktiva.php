@@ -16,7 +16,7 @@
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">Home</a></li>
+                            <li class="breadcrumb-item"><a href="<?= base_url() ?>">Home</a></li>
                             <li class="breadcrumb-item active">Data Aktiva</li>
                         </ol>
                     </div>
@@ -92,7 +92,7 @@
                 <button type="button" class="close text-white" data-dismiss="modal" aria-hidden="true">×</button>
             </div>
             <div class="modal-body">
-                <form action="<?= site_url('aktiva/aktiva/add') ?>" method="POST" class="no-validated">
+                <form action="<?= base_url('aktiva/aktiva/add') ?>" method="POST" class="no-validated">
                     <?= csrf_field(); ?>
                     <div>
                         <div class="mb-3">
@@ -140,7 +140,7 @@
                     <button type="button" class="close text-white" data-dismiss="modal" aria-hidden="true">×</button>
                 </div>
                 <div class="modal-body">
-                    <form action="<?= site_url('aktiva/aktiva/edit') ?>" method="POST" class="no-validated">
+                    <form action="<?= base_url('aktiva/aktiva/edit') ?>" method="POST" class="no-validated">
                         <div>
                             <div class="mb-3">
                                 <label class="form-label">ID Aktiva</label>
@@ -179,7 +179,7 @@
 <?php endforeach ?>
 
 <?php foreach ($aktiva as $akt) : ?>
-    <form action="aktiva/delete" method="post">
+    <form action="<?= base_url('aktiva/delete') ?>" method="post">
         <div id="delete<?= $akt['id_aktiva']; ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">

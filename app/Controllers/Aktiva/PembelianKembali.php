@@ -140,30 +140,30 @@ class PembelianKembali extends BaseController
             //     ],
             // ];
 
-            $kartu = array(
-                'id_stok'                   => $id_stok,
-                'id_aktiva'                 => $this->request->getPost('id_aktiva'),
-                'tanggal'                   => $newDate,
+            // $kartu = array(
+            //     'id_stok'                   => $id_stok,
+            //     'id_aktiva'                 => $this->request->getPost('id_aktiva'),
+            //     'tanggal'                   => $newDate,
                 // 'pembelian_unit'       => $newDate,
                 // 'pembelian_harga'       => $newDate,
                 // 'pembelian_total'       => $newDate,
                 // 'pemakaian_unit'       => $newDate,
                 // 'pemakaian_harga'       => $newDate,
                 // 'pemakaian_total'       => $newDate,
-                'unit_akhir'                => $jumlah,
-                'harga_akhir'               => $harga_perolehan,
-                'total_akhir'               => $total_perolehan,
-            );
+            //     'unit_akhir'                => $jumlah,
+            //     'harga_akhir'               => $harga_perolehan,
+            //     'total_akhir'               => $total_perolehan,
+            // );
 
             // dd($data_detail_perolehan, $data_eoq, $data_perolehan, $data_aktiva, $jurnal);
             $this->pembelianKembaliModel->createPembelianKembaliDetail($data_detail_perolehan);
             $this->pembelianKembaliModel->createPembelianKembali($data_perolehan);
             $this->aktivaTetapModel->createAktivaLancar($data_aktiva);
             $this->eoqModel->createOrderEoq($data_eoq);
-            $this->jurnalModel->createOrderJurnal($jurnal);
-            $this->kartuStokModel->createKartuStok($kartu);
+            // $this->jurnalModel->createOrderJurnal($jurnal);
+            // $this->kartuStokModel->createKartuStok($kartu);
             session()->setFlashdata('success', 'Data Pembelian Berhasil Ditambahkan');
-            return redirect()->to('/aktiva/pembeliankembali/add');
+            return redirect()->to('/aktiva/pembelianKembali/add');
         }
 
         return view('aktiva/pembelian_kembali/add_data_pembelian_kembali', $data);
@@ -173,7 +173,7 @@ class PembelianKembali extends BaseController
     {
         unset($_SESSION['id_detail_perolehan']);
         session()->setFlashdata('success', 'Data Berhasil Disimpan');
-        return redirect()->to('/aktiva/pembeliankembali');
+        return redirect()->to('/aktiva/pembelianKembali');
     }
 
     public function fetch_eoq()
@@ -235,7 +235,7 @@ class PembelianKembali extends BaseController
         );
         $this->eoqModel->createEoqRop($data);
         session()->setFlashdata('success', 'Data ROP Berhasil Ditambahkan');
-        return redirect()->to('/aktiva/pembeliankembali');
+        return redirect()->to('/aktiva/pembelianKembali');
     }
 
     //_______________________Dihide karena perubahan perhitungan EOQ_____________________//

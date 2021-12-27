@@ -18,7 +18,7 @@ class EoqModel extends Model
     public function getEoqData($id_aktiva)
     {
         $builder = $this->db->table('trans_eoq');
-        $builder->select('sum(total_barang) as total_barang, sum(harga_unit)/sum(total_barang) as total_harga, avg(ongkir) as total_ongkir, Month(tanggal) as month, Year(tanggal) as year, aktiva.nama_aktiva as nama_aktiva');
+        $builder->select('sum(total_barang) as total_barang, sum(harga_unit)/sum(total_barang) as total_harga, avg(ongkir) as total_ongkir, Month(tanggal) as month, Year(tanggal) as year, master_aktiva.nama_aktiva as nama_aktiva');
         $builder->join('master_aktiva', 'master_aktiva.id_aktiva = trans_eoq.id_aktiva');
         $builder->groupBy('month(tanggal)');
         $builder->where('trans_eoq.id_aktiva', $id_aktiva);
@@ -50,6 +50,7 @@ class EoqModel extends Model
         $builder->orderBy('id', 'desc');
         $builder->limit(1);
         $query   = $builder->get()->getResultArray();
+        $eoq = 0;
         foreach ($query as $data) {
             $eoq   = $data['eoq'];
         }

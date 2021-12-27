@@ -30,7 +30,7 @@
             <div class="col-8">
                 <div class="card-box">
                     <div class="pb-2">
-                        <a href="/aktiva/pembeliankembali/add" class="btn btn-primary waves-effect waves-light text-white">
+                        <a href="<?= base_url('aktiva/pembelianKembali/add') ?>" class="btn btn-primary waves-effect waves-light text-white">
                             <i class="mdi mdi-plus-thick fa-lg text-white"></i> Tambah
                         </a>
                     </div>
@@ -70,7 +70,7 @@
             <div class="col-4">
                 <div class="card-box">
                     <div class="pb-2">
-                        <a href="/aktiva/pembeliankembali/addNilai" class="btn btn-primary waves-effect waves-light text-white">
+                        <a href="<?= base_url('aktiva/pembelianKembali/addNilai') ?>" class="btn btn-primary waves-effect waves-light text-white">
                             <i class="mdi mdi-plus-thick fa-lg text-white"></i> Tambah
                         </a>
                     </div>

@@ -79,6 +79,9 @@
         "searching": false,
         "info": false,
     });
+    $("input[name='kamar']").TouchSpin({
+        initval: 0
+    });
     $("input[name='dewasa']").TouchSpin({
         initval: 0
     });
@@ -134,7 +137,7 @@
 </script>
 
 <script type="text/javascript">
-  
+
 </script>
 
 <script type='text/javascript'>
@@ -145,7 +148,7 @@
             var tanggal = $('#tanggal').val();
             // AJAX request
             $.ajax({
-                url: '<?= base_url() ?>/aktiva/pembeliankembali/fetch_eoq',
+                url: '<?= base_url() ?>/aktiva/pembelianKembali/fetch_eoq',
                 method: 'post',
                 data: {
                     id_aktiva: id_aktiva,

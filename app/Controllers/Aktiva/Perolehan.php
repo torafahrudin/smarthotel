@@ -161,30 +161,30 @@ class Perolehan extends BaseController
             }
 
             //insert jurnal
-            $jurnal = [
-                [
-                    'id_jurnal'     => $id_jurnalD,
-                    'tanggal'       => $newDate,
-                    'id_akun'       => 121,
-                    'nominal'       => $total_perolehan,
-                    'posisi'        => 'd',
-                    'debet'         => $total_perolehan,
-                    'kredit'        => 0,
-                    'reff'          => $code_perolehan,
-                    'transaksi'     => 'Perolehan Aktiva'
-                ],
-                [
-                    'id_jurnal'     => $id_jurnalK,
-                    'tanggal'       => $newDate,
-                    'id_akun'       => 111,
-                    'nominal'       => $total_perolehan,
-                    'posisi'        => 'k',
-                    'debet'         => 0,
-                    'kredit'        => $total_perolehan,
-                    'reff'          => $code_perolehan,
-                    'transaksi'     => 'Perolehan Aktiva'
-                ],
-            ];
+            // $jurnal = [
+            //     [
+            //         'id_jurnal'     => $id_jurnalD,
+            //         'tanggal'       => $newDate,
+            //         'id_akun'       => 121,
+            //         'nominal'       => $total_perolehan,
+            //         'posisi'        => 'd',
+            //         'debet'         => $total_perolehan,
+            //         'kredit'        => 0,
+            //         'reff'          => $code_perolehan,
+            //         'transaksi'     => 'Perolehan Aktiva'
+            //     ],
+            //     [
+            //         'id_jurnal'     => $id_jurnalK,
+            //         'tanggal'       => $newDate,
+            //         'id_akun'       => 111,
+            //         'nominal'       => $total_perolehan,
+            //         'posisi'        => 'k',
+            //         'debet'         => 0,
+            //         'kredit'        => $total_perolehan,
+            //         'reff'          => $code_perolehan,
+            //         'transaksi'     => 'Perolehan Aktiva'
+            //     ],
+            // ];
             // dd($data_detail_perolehan, $data_perolehan, $data_aktiva, $bulan_pertama, $bulan_selanjutnya, $jurnal);
             $this->perolehanModel->createPerolehanDetail($data_detail_perolehan);
             $this->perolehanModel->createPerolehan($data_perolehan);

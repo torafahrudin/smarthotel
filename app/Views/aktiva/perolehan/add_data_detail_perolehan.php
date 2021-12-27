@@ -15,8 +15,8 @@
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="/">Home</a></li>
-                            <li class="breadcrumb-item"><a href="/aktiva/perolehan">Data Perpindahan</a></li>
+                            <li class="breadcrumb-item"><a href="<?= base_url() ?>">Home</a></li>
+                            <li class="breadcrumb-item"><a href="<?= base_url('aktiva/perolehan') ?>">Data Perpindahan</a></li>
                             <li class="breadcrumb-item active">Tambah Data Perpindahan</li>
                         </ol>
                     </div>
@@ -82,7 +82,7 @@
             <div class="col-12">
                 <div class="card-box">
                     <div class="pb-2 float-right">
-                        <a href="/aktiva/perolehan/selesai" class="btn btn-success waves-effect waves-light text-white">
+                        <a href="<?= base_url('aktiva/perolehan/selesai') ?>" class="btn btn-success waves-effect waves-light text-white">
                             <i class="mdi mdi-content-save-all fa-lg text-white"></i> Selesai
                         </a>
                     </div>
