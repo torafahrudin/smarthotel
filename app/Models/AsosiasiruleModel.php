@@ -86,9 +86,17 @@ class AsosiasiruleModel extends Model
         $sql = "INSERT INTO master_min_rule Set id=?, min_sup=?, min_con=?, status='non active'";
         return $query=$this->db->query($sql, array($id,$minsup, $mincon));
     }
+    public function delete_min_rule($id){
+        $sql="DELETE from master_min_rule where id=?";
+        return $query=$this->db->query($sql, array($id));
+    }
+    public function edit_min_rule($id){
+        $minsup=$_POST['min_sup']/100;
+        $mincon=$_POST['min_con']/100;
+        $sql="UPDATE master_min_rule set min_sup=?, min_con =? where id=?";
+        return $query = $this->db->query($sql, array($minsup, $mincon, $id));
+        }
     public function update_rule(){
-       
-   
         $antesenden=$_POST['Anteseden2'];
         $consequent=$_POST['Consequent2'];
         $support=$_POST['Support2'];

@@ -81,17 +81,19 @@ class AsociationRule extends BaseController
             //di cek dulu apakah data isian memenuhi rules validasi yang dibuat
             if (! $this->validate(
                         [
-                            'min_sup' => 'required|is_natural',
-                            'min_con' => 'required|is_natural',
+                            'min_sup' => 'required|is_natural|less_than_equal_to[100]',
+                            'min_con' => 'required|is_natural|less_than_equal_to[100]',
                         ],
                                 [   // Errors
                                     'min_sup' => [
                                         'required' => 'Minimal support tidak boleh kosong',
-                                        'is_natural' => 'Minimal support tidak boleh minus'
+                                        'is_natural' => 'Minimal support tidak boleh minus',
+                                        'less_than_equal_to'=>'Minimal support tidak boleh lebih dari 100%'
                                     ],
                                     'min_con' => [
                                         'required' => 'Minimal Confidance boleh kosong',
-                                        'is_natural' => 'Minimal support tidak boleh minus'
+                                        'is_natural' => 'Minimal support tidak boleh minus',
+                                        'less_than_equal_to'=>'Minimal support tidak boleh lebih dari 100%'
                                     ], 
                                    
                                 ]
@@ -121,7 +123,16 @@ class AsociationRule extends BaseController
         $data['idminrule']=$this->Asosiasirulemodel->id_min_rule();
         echo view('Mesinlearning/data_min_rule', $data);
     }
-    
+    public function delete_min_rule(){
+        $id=$_POST['id'];
+        $hasil=$this->Asosiasirulemodel->delete_min_rule($id);
+         return redirect()->to(base_url('AsociationRule/data_min_rule'));
+    }
+    public function update_min_rule(){
+        // echo $_POST['min_sup'];
+        $hasil=$this->Asosiasirulemodel->edit_min_rule($_POST['id']);
+        return redirect()->to(base_url('AsociationRule/data_min_rule'));
+    }
     public function update(){
         $string="percobaan";
         

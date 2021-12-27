@@ -43,8 +43,8 @@
                                         <tr class="bg-dark-light">
                                             <th>ID </th>
                                             <th>Minimal Suppport</th>
-                                            <th>Minimal</th>
-                                            <th>Jabatan</th>
+                                            <th>Minimal Confidance</th>
+                                            <th>Status</th>
                                           
                                             <th class="text-center"><i class="fas fa-cog"></i></th>
                                         </tr>
@@ -179,7 +179,7 @@
                     <button type="button" class="close text-white" data-dismiss="modal" aria-hidden="true">×</button>
                 </div>
                 <div class="modal-body">
-                    <form action="<?= site_url('AsociationRule/edit_minrule') ?>" method="POST" class="no-validated">
+                    <form action="<?= site_url('AsociationRule/update_min_rule') ?>" method="POST" class="no-validated">
                         <div>
                                 <?php  
                                     $minsup=$value->min_sup*100;
@@ -192,22 +192,13 @@
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Minimal Support</label>
-                                    <input type="text" class="form-control" id="min_sup<?= $value->min_sup ?>" name="min_sup" value="<?= $minsup ?>" autocomplete="off" required>
+                                    <input type="text" class="form-control" id="min_sup<?= $value->min_sup ?>" name="min_sup" value="<?= $minsup ?>" required>
                                 </div>
                          
 
                             <div class="mb-3">
                                 <label class="form-label">Minimal Confidance</label>
-                                <input type="text" class="form-control" id="min_con<?= $value->min_con ?>" name="min_con" value="<?= $mincon ?>" autocomplete="off" required>
-                            </div>
-
-                            <div class="mb-3">
-                                <label class="form-label">Status</label>
-                                <select name="status" class="form-control select2">
-                                  <option value="0">- - - Pilih Status - - -</option>
-                                  <option value="0">Active</option>
-                                  <option value="0">Non Active</option>
-                                </select>
+                                <input type="text" class="form-control" id="min_con<?= $value->min_con ?>" name="min_con" value="<?= $mincon ?>" required>
                             </div>
                             <div class="mb-2 mt-1">
                                 <div class="float-right d-none d-sm-block">
@@ -226,7 +217,7 @@
 <?php endforeach ?>
 <?php foreach ($minrule as $value) : ?>
    
-    <?php echo form_open('Asociation/delete_min_rule') ?>
+    <?php echo form_open('AsociationRule/delete_min_rule') ?>
         <div id="delete<?= $value->id ; ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
