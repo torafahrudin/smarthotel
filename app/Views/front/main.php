@@ -18,23 +18,23 @@
     <link rel="apple-touch-icon-precomposed" href="#">
     <link rel="shortcut icon" href="#">
     <!-- Bootstrap -->
-    <link href="<?= base_url() ?>/front/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?= base_url() ?>/assetcust/css/bootstrap.min.css" rel="stylesheet">
     <!-- Fontawesome -->
-    <link href="<?= base_url() ?>/front/assets/css/font-awesome.css" rel="stylesheet">
+    <link href="<?= base_url() ?>/assetcust/css/font-awesome.css" rel="stylesheet">
     <!-- Flaticons -->
-    <link href="<?= base_url() ?>/front/assets/css/font/flaticon.css" rel="stylesheet">
+    <link href="<?= base_url() ?>/assetcust/css/font/flaticon.css" rel="stylesheet">
     <!-- Swiper Slider -->
-    <link href="<?= base_url() ?>/front/assets/css/swiper.min.css" rel="stylesheet">
+    <link href="<?= base_url() ?>/assetcust/css/swiper.min.css" rel="stylesheet">
     <!-- Range Slider -->
-    <link href="<?= base_url() ?>/front/assets/css/ion.rangeSlider.min.css" rel="stylesheet">
+    <link href="<?= base_url() ?>/assetcust/css/ion.rangeSlider.min.css" rel="stylesheet">
     <!-- magnific popup -->
-    <link href="<?= base_url() ?>/front/assets/css/magnific-popup.css" rel="stylesheet">
+    <link href="<?= base_url() ?>/assetcust/css/magnific-popup.css" rel="stylesheet">
     <!-- Nice Select -->
-    <link href="<?= base_url() ?>/front/assets/css/nice-select.css" rel="stylesheet">
+    <link href="<?= base_url() ?>/assetcust/css/nice-select.css" rel="stylesheet">
     <!-- Custom Stylesheet -->
-    <link href="<?= base_url() ?>/front/assets/css/style.css" rel="stylesheet">
+    <link href="<?= base_url() ?>/assetcust/css/style.css" rel="stylesheet">
     <!-- Custom Responsive -->
-    <link href="<?= base_url() ?>/front/assets/css/responsive.css" rel="stylesheet">
+    <link href="<?= base_url() ?>/assetcust/css/responsive.css" rel="stylesheet">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&amp;display=swap" rel="stylesheet">
     <!-- place -->

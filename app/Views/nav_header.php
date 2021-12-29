@@ -51,11 +51,10 @@
                                     <span>My Order</span>
                                 </a>
                             </div>
-                            <div class="gem-points">
-                                <a href="checkout" class="text-light-yellow fw-500 fs-18">> 
+                           <div class="gem-points">
+                                <a href="#" class="text-light-yellow fw-500 fs-18"> <!-- <i class="fas fa-concierge-bell"></i> -->
                                     <span>Payment</span>
                                 </a>
-                            </div>
                             </div>
                             <div class="gem-points">
                                 <a href="#" class="text-light-yellow fw-500 fs-18"> <!-- <i class="fas fa-concierge-bell"></i> -->
