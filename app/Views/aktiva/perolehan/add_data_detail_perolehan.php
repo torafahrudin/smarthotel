@@ -16,8 +16,8 @@
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
                             <li class="breadcrumb-item"><a href="<?= base_url() ?>">Home</a></li>
-                            <li class="breadcrumb-item"><a href="<?= base_url('aktiva/perolehan') ?>">Data Perpindahan</a></li>
-                            <li class="breadcrumb-item active">Tambah Data Perpindahan</li>
+                            <li class="breadcrumb-item"><a href="<?= base_url('aktiva/perolehan') ?>">Data Perolehan</a></li>
+                            <li class="breadcrumb-item active">Tambah Data Perolehan</li>
                         </ol>
                     </div>
 
