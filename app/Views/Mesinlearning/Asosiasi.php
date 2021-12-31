@@ -98,7 +98,7 @@
                     <div class="responsive-table-plugin">
                         <div class="table-rep-plugin">
                             <div class="table-responsive" data-pattern="priority-columns">   
-                            <?php  echo form_open('Asociationrule/update');
+                            <?php  echo form_open('AsociationRule/update');
                                           foreach($Rules2 as $value){
                                               $antesenden = $value['antecedent']; ?>
                                             <input type="hidden" name="Anteseden[]" value="<?php echo implode(",", $antesenden) ?>">
