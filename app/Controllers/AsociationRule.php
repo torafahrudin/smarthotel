@@ -132,14 +132,16 @@ class AsociationRule extends BaseController
         // echo $_POST['min_sup'];
         if($_POST['min_sup']>100&&$_POST['min_con']>100){
             ?>
-            <script type="text/javascript">
+            <script type="text/javascript" >
                     alert("Minimal Support dan Confidance tidak boleh lebih dari 100%");
-                </script>
+            </script>
             <?php
         }else{
         $hasil=$this->Asosiasirulemodel->edit_min_rule($_POST['id']);
         }
-        return redirect()->to(base_url('AsociationRule/data_min_rule'));
+        $data['minrule']=$this->Asosiasirulemodel->get_minrule_all();
+        $data['idminrule']=$this->Asosiasirulemodel->id_min_rule();
+        echo view('Mesinlearning/data_min_rule', $data)
     }
     public function update(){
         $string="percobaan";
