@@ -141,7 +141,7 @@ class AsociationRule extends BaseController
         }
         $data['minrule']=$this->Asosiasirulemodel->get_minrule_all();
         $data['idminrule']=$this->Asosiasirulemodel->id_min_rule();
-        echo view('Mesinlearning/data_min_rule', $data)
+        echo view('Mesinlearning/data_min_rule', $data);
     }
     public function update(){
         $string="percobaan";
