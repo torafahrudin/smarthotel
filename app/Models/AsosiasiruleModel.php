@@ -25,7 +25,7 @@ class AsosiasiruleModel extends Model
                     join produk_resto as b
                     on (a.kode_produk=b.kode)
                     GROUP BY  kode_penjualan
-                    ORDER BY 1 ASC"
+                    ORDER BY 1 ASC";
         $query = $this->db->query($sql)->getResult();
         $arr=[];
         foreach ($query as $row) {
@@ -48,7 +48,7 @@ class AsosiasiruleModel extends Model
                     join produk_resto as b
                     on (a.kode_produk=b.kode)
                     GROUP BY  kode_penjualan
-                    ORDER BY 1 ASC"
+                    ORDER BY 1 ASC";
         $query = $this->db->query($sql)->getResult();
         $arr=[];
         foreach ($query as $row) {
