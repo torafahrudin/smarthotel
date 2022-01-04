@@ -40,7 +40,7 @@ class AsociationRule extends BaseController
         $labels2  = [];
          $samples3=$this->Asosiasirulemodel->data_penjualan_bykodeproduk();
          $data['jumlahdata2']=$this->Asosiasirulemodel->jumlah_data($samples3);
-        $associator2 = new Apriori($support = 0.4, $confidence = 0.6);
+        $associator2 = new Apriori($minsup, $mincon);
         $associator2->train($data['jumlahdata2'], $labels2);
         $data['Samples2'] =  $data['jumlahdata2'];
         $data['Rules2'] = $associator2->getRules();
