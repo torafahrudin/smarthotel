@@ -17,7 +17,7 @@
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
                             <li class="breadcrumb-item"><a href="<?= base_url() ?>">Home</a></li>
-                            <li class="breadcrumb-item active">Data AKUN COA</li>
+                            <li class="breadcrumb-item active">Data COA</li>
                         </ol>
                     </div>
 

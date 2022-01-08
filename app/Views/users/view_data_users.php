@@ -15,7 +15,7 @@
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">Home</a></li>
+                            <li class="breadcrumb-item"><a href="<?= base_url() ?>">Home</a></li>
                             <li class="breadcrumb-item active">Data COA</li>
                         </ol>
                     </div>
@@ -128,7 +128,7 @@
                     <button type="button" class="close text-white" data-dismiss="modal" aria-hidden="true">×</button>
                 </div>
                 <div class="modal-body">
-                    <form action="<?= site_url('users/akses') ?>" method="POST" class="no-validated">
+                    <form action="<?= base_url('users/akses') ?>" method="POST" class="no-validated">
                         <div>
                             <input type="hidden" name="user_id" value="<?php echo $usr['id']; ?>">
                             <div class="mb-3">
@@ -171,7 +171,7 @@
                 </div>
                 <div class="modal-body">User Akan dinonaktifkan dan akses login akan ditutup.</div>
                 <div class="modal-body">
-                    <form action="<?= site_url('users/nonactive') ?>" method="POST" class="no-validated">
+                    <form action="<?= base_url('users/nonactive') ?>" method="POST" class="no-validated">
                         <div>
                             <input type="hidden" name="user_id" value="<?php echo $usr['id']; ?>">
 
@@ -203,7 +203,7 @@
                 </div>
                 <div class="modal-body">User Akan diaktifkan kembali dan akses login akan dibuka.</div>
                 <div class="modal-body">
-                    <form action="<?= site_url('users/active') ?>" method="POST" class="no-validated">
+                    <form action="<?= base_url('users/active') ?>" method="POST" class="no-validated">
                         <div>
                             <input type="hidden" name="user_id" value="<?php echo $usr['id']; ?>">
                             <div class="mb-2 mt-1">

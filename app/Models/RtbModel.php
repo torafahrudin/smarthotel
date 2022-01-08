@@ -12,28 +12,50 @@ class RtbModel extends Model
 		return $dbResult->getResult();
 	}
 
-	function Price($harga, $id_order)
+	public function GetInfoCustomer($id_customer, $status_bayar)
 	{
-		$query = $this->db->query(
-			"SELECT a.harga 
-			FROM kamar a  
-			JOIN order_kamar b 
-			ON(a.id_kamar=b.id_kamar) 
-			WHERE id_order='$id_order'",
-			$harga,
-			$id_order
-		);
-		return $query->getResult();
-
-		// $query = $this->db->select('harga')
-		// 	->from('real_time_billing')
-		// 	->where('id_order', $harga)
-		// 	->get();
-		// return $query->row_array();
+		if ($status_bayar == 'Belum Lunas') {
+			$sql = "SELECT COUNT(*) AS jml
+			FROM order_kamar
+			WHERE id_customer = '$id_customer' AND `status_bayar` = '$status_bayar'";
+			$dbResult = $this->db->query($sql, array($id_customer, $status_bayar));
+		} else {
+			$sql = "SELECT COUNT(*) AS jml
+			FROM order_kamar
+			WHERE id_customer = '$id_customer'";
+			$dbResult = $this->db->query($sql, array($id_customer, $status_bayar));
+		}
+		$hasil = $dbResult->getResult();
+		foreach ($hasil as $row) {
+			$jml = $row->jml;
+		}
+		return $jml;
 	}
+
+	public function GetCustByOrder($id_order)
+	{
+		$query = $this->db->query("SELECT a.* FROM customer a 
+		JOIN order_kamar b ON(a.id_customer=b.id_customer)
+		WHERE b.id_order='$id_order'", array($id_order));
+		return $query->getResult();
+	}
+
+
+	public function getCustBill()
+	{
+		$query = $this->db->query("SELECT b.id_customer, a.nama_customer, SUM(ifnull(b.harga_kamar,'0')+ifnull(b.harga_fasilitas,'0')) AS total_tagihan, b.status_order
+		FROM customer a 
+		JOIN order_kamar b
+		ON (a.id_customer=b.id_customer)
+		GROUP BY b.id_customer
+        HAVING b.status_order != 'checkout'");
+		return $query->getResult();
+	}
+
+
 	public function getOrder() // ini function yang muncul di real time billing gabungan beberapa tabel
 	{
-		$query = $this->db->query("SELECT a.id_order, c.nama_customer, a.id_kamar, b.harga, a.status_order, b.status, a.checkin, a.checkout
+		$query = $this->db->query("SELECT a.id_order, c.nama_customer, a.id_kamar, b.harga, a.status_order, a.checkin, a.checkout
 		FROM order_kamar a
 		JOIN kamar b
 		ON(a.id_kamar=b.id_kamar)
@@ -43,9 +65,9 @@ class RtbModel extends Model
 		ORDER BY a.id_order");
 		return $query->getResult();
 	}
-	public function GetDetail($id_order) //ini function untuk tombol detail 
+	public function GetDetail($id_order) //ini function untuk pop up di tombol detail 
 	{
-		$query = $this->db->query("SELECT a.id_order, c.nama_customer, a.id_kamar,a.id_booking ,b.harga, b.status, a.checkin, a.checkout
+		$query = $this->db->query("SELECT a.id_order, c.nama_customer, a.id_kamar,a.id_booking ,b.harga, a.checkin, a.checkout
 		FROM order_kamar a
 		JOIN kamar b
 		ON(a.id_kamar=b.id_kamar)
@@ -54,13 +76,13 @@ class RtbModel extends Model
 		WHERE a.id_order='$id_order'", array($id_order));
 		return $query->getResult();
 	}
-	public function ubahstatus($id)
+	public function ubahstatus($id_customer) //function untuk ubah status otomatis dari database
 	{
-		$query = $this->db->query("UPDATE order_kamar SET status_order='checkout' where id_order=?", array($id));
+		$query = $this->db->query("UPDATE order_kamar SET status_order='checkout' where id_customer=?", array($id_customer));
 		return $query;
 	}
 
-	public function GetDetailByCust($id_customer) //ini function untuk tombol detail 
+	public function GetDetailByCust($id_customer)
 	{
 		$query = $this->db->query("SELECT a.id_order, c.nama_customer, a.id_kamar,a.id_booking ,b.harga, b.status, a.checkin, a.checkout
 		FROM order_kamar a

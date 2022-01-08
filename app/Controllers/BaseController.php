@@ -35,7 +35,14 @@ class BaseController extends Controller
      *
      * @var array
      */
-    protected $helpers = ['auth', 'html', 'form', 'url', 'filesystem', 'Rupiah_helper', 'format_helper'];
+    protected $helpers = ['auth', 'format_helper', 'form', 'file', 'url'];
+
+    /**
+     * CI3's $autoload['libraries']
+     *
+     * @var array
+     */
+    protected $libraries = ['database', 'session'];
 
     /**
      * Constructor.

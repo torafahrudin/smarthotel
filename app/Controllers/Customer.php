@@ -29,6 +29,7 @@ class Customer extends BaseController
         $data = [
             'title'                 => 'Tambah Data Customer',
             'id_customer'           => $this->customerModel->code_customer_ID(),
+            'validation'            => $this->validation->setRules($this->customerModel->rules())
         ];
         return view('customer/add_data_customer', $data);
     }
@@ -64,7 +65,8 @@ class Customer extends BaseController
     {
         $data = [
             'title'                 => 'Edit Data Customer',
-            'customer'              => $this->customerModel->where('id_customer', $id_customer)->first()
+            'customer'              => $this->customerModel->where('id_customer', $id_customer)->first(),
+            'validation'            => $this->validation->setRules($this->customerModel->rules())
         ];
         return view('customer/edit_data_customer', $data);
     }

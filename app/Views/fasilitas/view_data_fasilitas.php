@@ -22,7 +22,7 @@
 
                 </div>
             </div>
-        </div>
+        </div> 
         <!-- end page title -->
 
         <div class="row">
@@ -38,13 +38,13 @@
                             <div class="table-responsive" data-pattern="priority-columns">
                                 <table id="datatable" class="table table-striped table-bordered nowrap">
                                     <thead>
-                                        <tr>
-                                            <th>ID Fasilitas</th>
+                                        <tr align="center">
+                                            <th >ID Fasilitas</th>
                                             <th>Nama</th>
                                             <th>Jenis</th>
                                             <th>Qty</th>
-                                            <th>Kapasitas</th>
-                                            <th>Harga</th>
+                                            <th >Kapasitas</th>
+                                            <th >Harga</th>
                                             <th>Status</th>
                                             <th class="text-center"><i class="fas fa-cog"></i></th>
                                         </tr>
@@ -52,22 +52,22 @@
                                     <tbody>
                                         <?php foreach ($fasilitas as $fsl) : ?>
                                             <tr>
-                                                <td>
+                                                <td align="center">
                                                     <?= $fsl['id_fasilitas'] ?>
                                                 </td>
                                                 <td>
                                                     <?= $fsl['nama_fasilitas'] ?>
                                                 </td>
-                                                <td>
-                                                    <?= $fsl['jenis'] ?>
+                                                <td align="center">
+                                                    <?= $fsl['id_header_billing'] ?>
                                                 </td>
-                                                <td>
+                                                <td align="center">
                                                     <?= $fsl['qty'] ?>
                                                 </td>
-                                                <td>
+                                                <td align="right">
                                                     <?= $fsl['kapasitas'] ?> orang
                                                 </td>
-                                                <td>
+                                                <td align="right">
                                                     <?= nominal($fsl['harga']) ?>
                                                 </td>
                                                 <td>
@@ -79,9 +79,9 @@
                                                     <a type="button" href="<?= base_url('fasilitas/edit/' . $fsl['id_fasilitas']) ?>"><i class="mdi mdi-pencil fa-lg text-warning"></i></a>
                                                     <a type="button" data-toggle="modal" data-target="#delete<?= $fsl['id_fasilitas']; ?>">
                                                         <i class="mdi mdi-trash-can fa-lg text-danger"></i>
-                                                    <!-- <a href="<?= base_url('fasilitas/detail/' . $fsl['id_fasilitas']) ?>" class="btn btn-info waves-effect waves-light text-white"> -->
+                                                    <!-- <a href="<?= base_url('fasilitas/detail/' . $fsl['id_fasilitas']) ?>" class="btn btn-info waves-effect waves-light text-white">
                                                      <a href="#" data-toggle="modal" data-target="#detail<?php echo $fsl['id_fasilitas']; ?>" >
-                                                     <i class="mdi mdi-eye fa-lg text-blue"></i>
+                                                     <i class="mdi mdi-eye fa-lg text-blue"></i> -->
                                                       </a>  
                                                     </a>
                                                 </td>

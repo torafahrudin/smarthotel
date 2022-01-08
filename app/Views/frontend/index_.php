@@ -17,7 +17,7 @@
                     <div class="single_room_wrapper clearfix">
                         <figure class="uk-overlay uk-overlay-hover">
                             <div class="room_media">
-                                <a href="#"><img src="<?= base_url(); ?>/assets/images/room/bungalow.jpg" alt=""></a>
+                                <a href="#"><img src="<?= base_url('assets/images/room/bungalow.jpg') ?>" alt=""></a>
                             </div>
                             <div class="room_title border-bottom-whitesmoke clearfix">
                                 <div class="left_room_title floatleft">
@@ -35,7 +35,7 @@
                     <div class="single_room_wrapper clearfix">
                         <figure class="uk-overlay uk-overlay-hover">
                             <div class="room_media">
-                                <a href="#"><img src="<?= base_url(); ?>/assets/images/room/family-suite.jpg" alt=""></a>
+                                <a href="#"><img src="<?= base_url('assets/images/room/family-suite.jpg') ?>" alt=""></a>
                             </div>
                             <div class="room_title border-bottom-whitesmoke clearfix">
                                 <div class="left_room_title floatleft">
@@ -53,7 +53,7 @@
                     <div class="single_room_wrapper clearfix">
                         <figure class="uk-overlay uk-overlay-hover">
                             <div class="room_media">
-                                <a href="#"><img src="<?= base_url(); ?>/assets/images/room/superior.jpg" alt=""></a>
+                                <a href="#"><img src="<?= base_url('assets/images/room/superior.jpg') ?>" alt=""></a>
                             </div>
                             <div class="room_title border-bottom-whitesmoke clearfix">
                                 <div class="left_room_title floatleft">
@@ -71,7 +71,7 @@
                     <div class="single_room_wrapper clearfix">
                         <figure class="uk-overlay uk-overlay-hover">
                             <div class="room_media">
-                                <a href="#"><img src="<?= base_url(); ?>/assets/images/room/executive.jpg" alt=""></a>
+                                <a href="#"><img src="<?= base_url('assets/images/room/executive.jpg') ?>" alt=""></a>
                             </div>
                             <div class="room_title border-bottom-whitesmoke clearfix">
                                 <div class="left_room_title floatleft">

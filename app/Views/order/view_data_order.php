@@ -16,7 +16,7 @@
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">Home</a></li>
+                            <li class="breadcrumb-item"><a href="<?= base_url() ?>">Home</a></li>
                             <li class="breadcrumb-item active">All Data Order</li>
                         </ol>
                     </div>
@@ -40,8 +40,10 @@
                                             <th>ID Booking</th>
                                             <th>Nama Customer</th>
                                             <th>Kamar</th>
+                                            <th>Fasilitas</th>
                                             <th>Tanggal Checkin</th>
                                             <th>Tanggal Checkout</th>
+                                            <th>QR CODE</th>
                                             <th>Status</th>
                                             <th class="text-center"><i class="fas fa-cog"></i></th>
                                         </tr>
@@ -62,10 +64,18 @@
                                                     <?= $order['ket1'] . ' ' . $order['ket2'] ?>
                                                 </td>
                                                 <td>
+                                                    <?= $order['nama_fasilitas'] ?>
+                                                </td>
+                                                <td>
                                                     <?= $order['checkin'] ?>
                                                 </td>
                                                 <td>
                                                     <?= $order['checkout'] ?>
+                                                </td>
+                                                <td class="text-center">
+                                                    <a type="button" data-toggle="modal" data-target="#qrCode<?= $order['id_order']; ?>" class="btn btn-danger btn-sm waves-effect waves-light text-white">
+                                                        <i class="mdi mdi-eye fa-lg text-white"></i> SHOW
+                                                    </a>
                                                 </td>
                                                 <td class="text-center">
                                                     <?php if ($order['sts'] == 'Booking') : ?>
@@ -120,7 +130,7 @@
 
 
 <?php foreach ($list as $order) : ?>
-    <form action="order/updateCheckin" method="post">
+    <form action="<?= base_url('order/updateCheckin') ?>" method="post">
         <div id="updateCheckin<?php echo $order['id_order']; ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
@@ -152,6 +162,29 @@
             <!-- /.modal-dialog -->
         </div>
     </form>
+<?php endforeach ?>
+
+<?php foreach ($list as $order) : ?>
+    <div id="qrCode<?php echo $order['id_order']; ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-primary">
+                    <h4 class="modal-title mt-0 text-white">QR CODE</h4>
+                    <button type="button" class="close text-white" data-dismiss="modal" aria-hidden="true">×</button>
+                </div>
+                <div class="modal-body text-center"><img src="<?= base_url($order['file']) ?>" class="thumb-img img-fluid" style="max-width: 240px; max-height: 240px"></div>
+                <div class="modal-body">
+                    <div class="mb-2 mt-1">
+                        <div class="float-right d-none d-sm-block">
+                            <button href="#" class="btn btn-secondary" data-dismiss="modal"><i class="mdi mdi-close-thick fa-lg"></i> Tutup</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
 <?php endforeach ?>
 
 

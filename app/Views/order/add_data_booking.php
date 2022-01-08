@@ -16,8 +16,8 @@
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="/">Home</a></li>
-                            <li class="breadcrumb-item"><a href="/receptionist">Data Checkin</a></li>
+                            <li class="breadcrumb-item"><a href="<?= base_url() ?>">Home</a></li>
+                            <li class="breadcrumb-item"><a href="<?= base_url('order') ?>">Data Checkin</a></li>
                             <li class="breadcrumb-item active">Tambah Data Order</li>
                         </ol>
                     </div>
@@ -42,9 +42,7 @@
                                     <label for="id_booking" class="col-form-label">ID Booking</label>
                                     <input type="text" class="form-control" name="id_booking" value="<?= $id_booking; ?>" autocomplete="off" disabled>
                                 </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
+                                <div class="form-group col-md-4">
                                     <label for="nama_customer" class="col-form-label">Customer</label>
                                     <select name="id_customer" class="form-control">
                                         <option value="" disabled selected>- - - Pilih Customer - - -</option>
@@ -55,7 +53,7 @@
                                         <?php } ?>
                                     </select>
                                 </div>
-                                <div class="form-group col-md-6">
+                                <div class="form-group col-md-4">
                                     <label for="nama_customer" class="col-form-label">Kamar</label>
                                     <select name="id_kamar" class="form-control">
                                         <option value="" disabled selected>- - - Pilih Kamar - - -</option>
@@ -66,28 +64,43 @@
                                         <?php } ?>
                                     </select>
                                 </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-3">
-                                    <label for="no_telp" class="col-form-label">Tanggal Checkin & Checkout</label>
-                                    <input type="text" class="form-control" name="tanggal_in_out" placeholder="Pilih Waktu Checkin dan Checkout" />
+                                <div class="form-group col-md-4">
+                                    <label for="nama_customer" class="col-form-label">Fasilitas</label>
+                                    <select name="id_fasilitas" class="form-control">
+                                        <option value="" disabled selected>- - - Pilih Fasilitas - - -</option>
+                                        <?php
+                                        foreach ($fasilitas as $list) {
+                                        ?>
+                                            <option value="<?= $list['id_fasilitas'] ?>"><?= $list['id_fasilitas'] . " - " . $list['nama_fasilitas']  ?></option>
+                                        <?php } ?>
+                                    </select>
                                 </div>
-                                <div class="form-group col-md-3">
+                                <div class="form-group col-md-4">
+                                    <label for="no_telp" class="col-form-label">Tanggal Checkin</label>
+                                    <input type="text" id="date-start" class="form-control" name="tanggal_in" placeholder="Pilih Waktu Checkin">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="no_telp" class="col-form-label">Tanggal Checkout</label>
+                                    <input type="text" id="date-end" class="form-control" name="tanggal_out" placeholder="Pilih Waktu Checkout">
+                                </div>
+                                </div>
+                                <div class="form-row">
+                                <div class="form-group col-md-4">
                                     <label for="email" class="col-form-label">Kamar</label>
                                     <input id="kamar" type="text" value="" name="kamar">
                                 </div>
-                                <div class="form-group col-md-3">
+                                <div class="form-group col-md-4">
                                     <label for="email" class="col-form-label">Dewasa</label>
                                     <input id="dewasa" type="text" value="" name="dewasa">
                                 </div>
-                                <div class="form-group col-md-3">
+                                <div class="form-group col-md-4">
                                     <label for="email" class="col-form-label">Anak</label>
                                     <input id="anak" type="text" value="" name="anak">
                                 </div>
                             </div>
                             <div class="mb-2 mt-1">
                                 <div class="float-left d-none d-sm-block">
-                                    <a href="/order/booking" class="btn btn-secondary"><i class="mdi mdi-close-thick fa-lg"></i> Batal</a>
+                                    <a href="<?= base_url('order/booking') ?>" class="btn btn-secondary"><i class="mdi mdi-close-thick fa-lg"></i> Batal</a>
                                     <button type="submit" class="btn btn-primary"><i class="mdi mdi-content-save-move fa-lg"></i> Simpan</button>
                                 </div>
                             </div>

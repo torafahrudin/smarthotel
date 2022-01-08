@@ -16,7 +16,7 @@
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">Home</a></li>
+                            <li class="breadcrumb-item"><a href="<?= base_url() ?>">Home</a></li>
                             <li class="breadcrumb-item active">Data Customer</li>
                         </ol>
                     </div>
@@ -30,7 +30,7 @@
             <div class="col-12">
                 <div class="card-box">
                     <div class="pb-2">
-                        <a href="/customer/add" class="btn btn-primary waves-effect waves-light text-white">
+                        <a href="<?= base_url('customer/add') ?>" class="btn btn-primary waves-effect waves-light text-white">
                             <i class="mdi mdi-plus-thick fa-lg text-white"></i> Tambah
                         </a>
                     </div>
@@ -95,7 +95,7 @@
 
 
 <?php foreach ($customer as $cst) : ?>
-    <form action="customer/delete" method="post">
+    <form action="<?= base_url('customer/delete') ?>" method="post">
         <div id="delete<?php echo $cst['id_customer']; ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">

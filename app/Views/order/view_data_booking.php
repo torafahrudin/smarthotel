@@ -16,7 +16,7 @@
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">Home</a></li>
+                            <li class="breadcrumb-item"><a href="<?= base_url() ?>">Home</a></li>
                             <li class="breadcrumb-item active">Data Booking</li>
                         </ol>
                     </div>
@@ -30,7 +30,7 @@
             <div class="col-12">
                 <div class="card-box">
                     <div class="pb-2">
-                        <a href="/order/addBooking" class="btn btn-primary waves-effect waves-light text-white">
+                        <a href="<?= base_url('order/addBooking') ?>" class="btn btn-primary waves-effect waves-light text-white">
                             <i class="mdi mdi-plus-thick fa-lg text-white"></i> Booking
                         </a>
                     </div>
@@ -43,10 +43,10 @@
                                             <th>ID Booking</th>
                                             <th>Nama Customer</th>
                                             <th>Kamar</th>
+                                            <th>Fasilitas</th>
                                             <th>Tanggal Booking Checkin</th>
                                             <th>Tanggal Booking Checkout</th>
                                             <th>Status</th>
-                                            <th class="text-center"><i class="fas fa-cog"></i></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -62,6 +62,9 @@
                                                     <?= $order['ket1'] . ' ' . $order['ket2'] ?>
                                                 </td>
                                                 <td>
+                                                    <?= $order['nama_fasilitas'] ?>
+                                                </td>
+                                                <td>
                                                     <?= $order['checkin'] ?>
                                                 </td>
                                                 <td>
@@ -72,13 +75,6 @@
                                                         <i class="mdi mdi-book-account-outline fa-lg"></i>
                                                     </span>
                                                 </td>
-                                                <td class="text-center">
-                                                    <a type="button" data-toggle="modal" data-target="#updateCheckin<?= $order['id_order']; ?>" class="btn btn-warning btn-sm waves-effect waves-light text-white">
-                                                        <i class="mdi mdi-account-key fa-lg text-white"></i>
-                                                    </a>
-                                                </td>
-
-
                                             </tr>
                                         <?php endforeach; ?>
 
@@ -96,7 +92,7 @@
 </div> <!-- content -->
 
 <?php foreach ($data_list as $order) : ?>
-    <form action="<?= base_url() ?>/order/updateCheckin" method="post">
+    <form action="<?= base_url('order/updateCheckin') ?>" method="post">
         <div id="updateCheckin<?php echo $order['id_order']; ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">

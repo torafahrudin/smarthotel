@@ -37,6 +37,7 @@ class Room extends BaseController
             'id_kamar'              => $this->roomModel->code_kamar_ID(),
             'header'                => $this->hdModel->getHeaderBilling(),
             'sub'                   => $this->sbModel->getSubBilling(),
+            'validation'            => $this->validation->setRules($this->roomModel->rules())
         ];
         return view('kamar/add_data_kamar', $data);
     }
@@ -52,16 +53,21 @@ class Room extends BaseController
         $this->validation->setRules($this->roomModel->rules());
         $isDataValid = $this->validation->withRequest($this->request)->run();
 
+        $fileRoom = $this->request->getFile('room_image');
+        $fileRoom->move('assets/images/room');
+        $RoomName = $fileRoom->getName();
+
         if ($isDataValid) {
+
             $data = array(
                 'id_kamar' => $this->roomModel->code_kamar_ID(),
                 'id_header_billing' => $this->request->getPost('id_header_billing'),
                 'id_sub_billing' => $this->request->getPost('id_sub_billing'),
-                'id_fasilitas' => '',
                 'kapasitas' => $this->request->getPost('kapasitas'),
                 'jumlah' => $this->request->getPost('jumlah'),
                 'harga' => $this->request->getPost('harga'),
-                // 'room_image' => $this->request->getPost('room_image'),
+                'keterangan' => $this->request->getPost('keterangan'),
+                'room_image' => $RoomName,
             );
             $this->roomModel->createRoom($data);
             session()->setFlashdata('success', 'Data Berhasil Ditambahkan');
@@ -79,6 +85,7 @@ class Room extends BaseController
             'room'                  => $this->roomModel->where('id_kamar', $id_kamar)->first(),
             'header'                => $this->hdModel->getHeaderBilling(),
             'sub'                   => $this->sbModel->getSubBilling(),
+            'validation'            => $this->validation->setRules($this->roomModel->rules())
         ];
         return view('kamar/edit_data_kamar', $data);
     }
@@ -95,15 +102,19 @@ class Room extends BaseController
         $this->validation->setRules($this->roomModel->rules());
         $isDataValid = $this->validation->withRequest($this->request)->run();
 
+        $fileRoom = $this->request->getFile('room_image');
+        $fileRoom->move('assets/images/room');
+        $RoomName = $fileRoom->getName();
+
         if ($isDataValid) {
             $data = array(
                 'id_header_billing' => $this->request->getPost('id_header_billing'),
                 'id_sub_billing' => $this->request->getPost('id_sub_billing'),
-                'id_fasilitas' => '',
                 'kapasitas' => $this->request->getPost('kapasitas'),
                 'jumlah' => $this->request->getPost('jumlah'),
                 'harga' => $this->request->getPost('harga'),
-                // 'room_image' => $this->request->getPost('room_image'),
+                'keterangan' => $this->request->getPost('keterangan'),
+                'room_image' => $RoomName,
             );
             $this->roomModel->updateRoom($data, $id_kamar);
             session()->setFlashdata('success', 'Data Kamar Berhasil Diubah');
@@ -119,14 +130,17 @@ class Room extends BaseController
     {
         $data = [
             'title'     => 'Data Kamar',
-            'room'       => $this->roomModel->getListRoom(),
+            'room'       => $this->roomModel->getDetailRoom($id_kamar),
         ];
+        // dd($data);
         return view('kamar/detail_data_kamar', $data);
     }
 
     public function delete()
     {
         $id = $this->request->getPost('id_kamar');
+        $kamar = $this->roomModel->find($id);
+        unlink('assets/images/room/' . $kamar['room_image']);
         $this->roomModel->deleteRoom($id);
         session()->setFlashdata('success', 'Data Kamar Berhasil Dihapus');
 

@@ -39,28 +39,28 @@
     <div class="u-line instagram-slider swiper-container">
         <ul class="hm-list hm-instagram swiper-wrapper">
             <li class="swiper-slide">
-                <a href="#"><img src="assets_frontend/img/restaurants/250x200/insta-3.jpg" alt="instagram"></a>
+                <a href="#"><img src="<?= base_url('assets_frontend/img/restaurants/250x200/insta-3.jpg') ?>" alt="instagram"></a>
             </li>
             <li class="swiper-slide">
-                <a href="#"><img src="assets_frontend/img/restaurants/250x200/insta-1.jpg" alt="instagram"></a>
+                <a href="#"><img src="<?= base_url('assets_frontend/img/restaurants/250x200/insta-1.jpg') ?>" alt="instagram"></a>
             </li>
             <li class="swiper-slide">
-                <a href="#"><img src="assets_frontend/img/restaurants/250x200/insta-2.jpg" alt="instagram"></a>
+                <a href="#"><img src="<?= base_url('assets_frontend/img/restaurants/250x200/insta-2.jpg') ?>" alt="instagram"></a>
             </li>
             <li class="swiper-slide">
-                <a href="#"><img src="assets_frontend/img/restaurants/250x200/insta-4.jpg" alt="instagram"></a>
+                <a href="#"><img src="<?= base_url('assets_frontend/img/restaurants/250x200/insta-4.jpg') ?>" alt="instagram"></a>
             </li>
             <li class="swiper-slide">
-                <a href="#"><img src="assets_frontend/img/restaurants/250x200/insta-5.jpg" alt="instagram"></a>
+                <a href="#"><img src="<?= base_url('assets_frontend/img/restaurants/250x200/insta-5.jpg') ?>" alt="instagram"></a>
             </li>
             <li class="swiper-slide">
-                <a href="#"><img src="assets_frontend/img/restaurants/250x200/insta-6.jpg" alt="instagram"></a>
+                <a href="#"><img src="<?= base_url('assets_frontend/img/restaurants/250x200/insta-6.jpg') ?>" alt="instagram"></a>
             </li>
             <li class="swiper-slide">
-                <a href="#"><img src="assets_frontend/img/restaurants/250x200/insta-7.jpg" alt="instagram"></a>
+                <a href="#"><img src="<?= base_url('assets_frontend/img/restaurants/250x200/insta-7.jpg') ?>" alt="instagram"></a>
             </li>
             <li class="swiper-slide">
-                <a href="#"><img src="assets_frontend/img/restaurants/250x200/insta-8.jpg" alt="instagram"></a>
+                <a href="#"><img src="<?= base_url('assets_frontend/img/restaurants/250x200/insta-8.jpg') ?>" alt="instagram"></a>
             </li>
         </ul>
     </div>
@@ -135,12 +135,12 @@
                     <h6 class="text-custom-white">Download Apps</h6>
                     <div class="appimg">
                         <a href="#">
-                            <img src="assets_frontend/img/playstore.jpg" class="img-fluid" alt="app logo">
+                            <img src="<?= base_url('assets_frontend/img/playstore.jpg') ?>" class="img-fluid" alt="app logo">
                         </a>
                     </div>
                     <div class="appimg">
                         <a href="#">
-                            <img src="assets_frontend/img/appstore.jpg" class="img-fluid" alt="app logo">
+                            <img src="<?= base_url('assets_frontend/img/appstore.jpg') ?>" class="img-fluid" alt="app logo">
                         </a>
                     </div>
                 </div>
@@ -184,10 +184,10 @@
             <div class="col-lg-4">
                 <div class="payment-logo mb-md-20"> <span class="text-light-white fs-14 mr-3">We are accept</span>
                     <div class="payemt-icon">
-                        <img src="assets_frontend/img/card-front.jpg" alt="#">
-                        <img src="assets_frontend/img/visa.jpg" alt="#">
-                        <img src="assets_frontend/img/amex-card-front.png" alt="#">
-                        <img src="assets_frontend/img/mastercard.png" alt="#">
+                        <img src="<?= base_url('assets_frontend/img/card-front.jpg') ?>" alt="#">
+                        <img src="<?= base_url('assets_frontend/img/visa.jpg') ?>" alt="#">
+                        <img src="<?= base_url('assets_frontend/img/amex-card-front.png') ?>" alt="#">
+                        <img src="<?= base_url('assets_frontend/img/mastercard.png') ?>" alt="#">
                     </div>
                 </div>
             </div>

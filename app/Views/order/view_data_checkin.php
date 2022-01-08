@@ -16,7 +16,7 @@
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">Home</a></li>
+                            <li class="breadcrumb-item"><a href="<?= base_url() ?>">Home</a></li>
                             <li class="breadcrumb-item active">All Data Order</li>
                         </ol>
                     </div>
@@ -30,7 +30,7 @@
             <div class="col-12">
                 <div class="card-box">
                     <!-- <div class="pb-2">
-                        <a href="/order/addCheckin" class="btn btn-primary waves-effect waves-light text-white">
+                        <a href="<?= base_url('order/addCheckin') ?>" class="btn btn-primary waves-effect waves-light text-white">
                             <i class="mdi mdi-plus-thick fa-lg text-white"></i> Order
                         </a>
                     </div> -->
@@ -43,6 +43,7 @@
                                             <th>ID Order</th>
                                             <th>Nama Customer</th>
                                             <th>Kamar</th>
+                                            <th>Fasilitas</th>
                                             <th>Tanggal Checkin</th>
                                             <th>Tanggal Checkout</th>
                                             <th>Status</th>
@@ -60,6 +61,9 @@
                                                 </td>
                                                 <td>
                                                     <?= $order['ket1'] . '' . $order['ket2'] ?>
+                                                </td>
+                                                <td>
+                                                    <?= $order['nama_fasilitas'] ?>
                                                 </td>
                                                 <td>
                                                     <?= $order['checkin'] ?>

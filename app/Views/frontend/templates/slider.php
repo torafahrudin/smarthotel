@@ -63,7 +63,7 @@
                          </div>
                      </form>
                      <div class="special_offer_main">
-                            <img src="<?= base_url(); ?>/assets_frontend/img/special-offer-main.png" alt="">
+                            <img src="<?= base_url('assets_frontend/img/special-offer-main.png') ?>" alt="">
                         </div>
                  </div>
              </div>
@@ -74,7 +74,7 @@
                  <ul>
 
                      <li data-transition="random" data-slotamount="7" data-masterspeed="1000">
-                         <img src="<?= base_url(); ?>/assets/images/room/main-hotel.jpg" alt="slide">
+                         <img src="<?= base_url('assets/images/room/main-hotel.jpg') ?>" alt="slide">
                          <div class="tp-caption large_black sfr" data-x="105" data-y="197" data-speed="1200" data-start="1100" data-easing="easeInOutBack" style="font-family: 'Playfair Display', serif; font-size: 48px;color: #fff; margin-bottom: 23px; text-transform: uppercase; line-height: 40px;">
                              Book Your Summer Holidays
                          </div>

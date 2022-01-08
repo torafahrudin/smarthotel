@@ -16,8 +16,8 @@
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="/">Home</a></li>
-                            <li class="breadcrumb-item"><a href="/receptionist">Data Checkin</a></li>
+                            <li class="breadcrumb-item"><a href="<?= base_url() ?>">Home</a></li>
+                            <li class="breadcrumb-item"><a href="<?= base_url('order') ?>">Data Checkin</a></li>
                             <li class="breadcrumb-item active">Tambah Data Order</li>
                         </ol>
                     </div>

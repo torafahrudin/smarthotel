@@ -8,7 +8,7 @@ class RoomModel extends Model
 {
     protected $table      = 'kamar';
     protected $primaryKey = 'id_kamar';
-    protected $allowedFields = ['id_kamar', 'id_tipe_kamar', 'id_header_billing', 'id_sub_billing', 'id_fasilitas', 'jumlah', 'harga', 'room_image', 'status'];
+    protected $allowedFields = ['id_kamar', 'id_tipe_kamar', 'id_header_billing', 'id_sub_billing', 'id_fasilitas', 'jumlah', 'harga', 'room_image', 'status', 'keterangan'];
 
     public function rules()
     {
@@ -54,6 +54,14 @@ class RoomModel extends Model
                         'required' => ' {field} mohon diisi',
                     ],
                 ],
+                'keterangan'    =>
+                [
+                    'label'  => 'Keterangan',
+                    'rules'  => 'required',
+                    'errors' => [
+                        'required' => ' {field} mohon diisi',
+                    ],
+                ],
             ];
     }
 
@@ -77,6 +85,24 @@ class RoomModel extends Model
         return $query->getResultArray();
     }
 
+    public function getListFasilitas()
+    {
+        $builder = $this->db->table('m_fasilitas');
+        $query   = $builder->get();
+        return $query->getResultArray();
+    }
+
+    public function getDetailRoom($id_kamar)
+    {
+        $builder = $this->db->table('kamar');
+        $builder->select('kamar.*, header_billing.keterangan as ket1, sub_billing.keterangan as ket2, kamar.keterangan as deskripsi');
+        $builder->join('header_billing', 'header_billing.id_header_billing = kamar.id_header_billing', 'left');
+        $builder->join('sub_billing', 'sub_billing.id_sub_billing = kamar.id_sub_billing', 'left');
+        $builder->where('id_kamar', $id_kamar);
+        $query   = $builder->get();
+        return $query->getResultArray();
+    }
+
     public function getPriceRoom($id_kamar)
     {
         $builder = $this->db->table('kamar');
@@ -87,6 +113,33 @@ class RoomModel extends Model
             $harga = $data['harga'];
         }
         return $harga;
+    }
+
+    public function getPriceFasilitas($id_fasilitas)
+    {
+        $builder = $this->db->table('m_fasilitas');
+        $builder->select('harga');
+        $builder->where('id_fasilitas', $id_fasilitas);
+        $query   = $builder->get()->getResultArray();
+        foreach ($query as $data) {
+            $harga = $data['harga'];
+        }
+        return $harga;
+    }
+
+    public function getPriceJurnal($id_order)
+    {
+        $builder = $this->db->table('order_kamar');
+        $builder->select('harga_kamar,harga_fasilitas');
+        $builder->where('id_order', $id_order);
+        $query   = $builder->get()->getResultArray();
+        $total = 0;
+        foreach ($query as $data) {
+            $harga_kamar = $data['harga_kamar'];
+            $harga_fasilitas = $data['harga_fasilitas'];
+            $total += $harga_kamar + $harga_fasilitas;
+        }
+        return $total;
     }
 
     public function code_kamar_ID()

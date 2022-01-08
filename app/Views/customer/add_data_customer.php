@@ -16,8 +16,8 @@
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="/">Home</a></li>
-                            <li class="breadcrumb-item"><a href="/receptionist">Data Receptionist</a></li>
+                            <li class="breadcrumb-item"><a href="<?= base_url() ?>">Home</a></li>
+                            <li class="breadcrumb-item"><a href="<?= base_url('Customer') ?>">Data Customer</a></li>
                             <li class="breadcrumb-item active">Tambah Data Receptionist</li>
                         </ol>
                     </div>
@@ -45,7 +45,7 @@
                                 <div class="form-group col-md-6">
                                     <label for="nik" class="col-form-label">NIK</label>
                                     <input type="number" class="form-control" name="nik" placeholder="NIK" autocomplete="off">
-                                    <?php if (isset($validation)) : ?>
+                                    <?php if ($validation->getError('nik') != '') : ?>
                                         <span class="badge badge-danger"> <?= $validation->getError('nik') ?></span>
                                     <?php endif; ?>
                                 </div>
@@ -53,7 +53,7 @@
                             <div class="form-group">
                                 <label for="nama_customer" class="col-form-label">Nama Customer</label>
                                 <input type="text" class="form-control" name="nama_customer" placeholder="Nama customer" autocomplete="off">
-                                <?php if (isset($validation)) : ?>
+                                <?php if ($validation->getError('nama_customer') != '') : ?>
                                     <span class="badge badge-danger"> <?= $validation->getError('nama_customer') ?></span>
                                 <?php endif; ?>
                             </div>
@@ -61,14 +61,14 @@
                                 <div class="form-group col-md-6">
                                     <label for="no_telp" class="col-form-label">No Telp</label>
                                     <input type="number" class="form-control" name="no_telp" placeholder="No Telp" autocomplete="off">
-                                    <?php if (isset($validation)) : ?>
+                                    <?php if ($validation->getError('no_telp') != '') : ?>
                                         <span class="badge badge-danger"> <?= $validation->getError('no_telp') ?></span>
                                     <?php endif; ?>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="email" class="col-form-label">Email</label>
                                     <input type="text" class="form-control" name="email" placeholder="Email" autocomplete="off">
-                                    <?php if (isset($validation)) : ?>
+                                    <?php if ($validation->getError('email') != '') : ?>
                                         <span class="badge badge-danger"> <?= $validation->getError('email') ?></span>
                                     <?php endif; ?>
                                 </div>
@@ -76,13 +76,13 @@
                             <div class="form-group">
                                 <label for="alamat" class="col-form-label">Alamat</label>
                                 <input type="text" class="form-control" name="alamat" placeholder="Alamat" autocomplete="off">
-                                <?php if (isset($validation)) : ?>
+                                <?php if ($validation->getError('alamat') != '') : ?>
                                     <span class="badge badge-danger"> <?= $validation->getError('alamat') ?></span>
                                 <?php endif; ?>
                             </div>
                             <div class="mb-2 mt-1">
                                 <div class="float-left d-none d-sm-block">
-                                    <a href="/customer" class="btn btn-secondary"><i class="mdi mdi-close-thick fa-lg"></i> Batal</a>
+                                    <a href="<?= base_url('customer') ?>" class="btn btn-secondary"><i class="mdi mdi-close-thick fa-lg"></i> Batal</a>
                                     <button type="submit" class="btn btn-primary"><i class="mdi mdi-content-save-move fa-lg"></i> Simpan</button>
                                 </div>
                             </div>

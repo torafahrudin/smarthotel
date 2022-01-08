@@ -43,6 +43,7 @@ class Coa extends BaseController
             'nama_akun' => $this->request->getPost('nama_akun'),
             'kategori' => $this->request->getPost('kategori'),
             'saldo_normal' => $this->request->getPost('saldo_normal'),
+            'sa' => $this->request->getPost('sa'),
         );
         $this->coaModel->updateCoa($data, $id);
         session()->setFlashdata('success', 'Data COA Berhasil Diubah');

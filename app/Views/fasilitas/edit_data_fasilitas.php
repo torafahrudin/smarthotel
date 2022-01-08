@@ -22,7 +22,7 @@
                         </ol>
                     </div>
 
-                </div>
+                </div> 
             </div>
         </div>
         <!-- end page title -->
@@ -43,13 +43,19 @@
                                     <label for="id_fasilitas" class="col-form-label">ID Fasilitas</label>
                                     <input type="text" class="form-control" value="<?= $fasilitas['id_fasilitas'] ?>" autocomplete="off" disabled>
                                 </div>
-                            <div class="form-group col-md-4">
-                                <label for="nama_fasilitas" class="col-form-label">Nama Fasilitas</label>
-                                <input type="text" class="form-control" name="nama_fasilitas" value="<?= $fasilitas['nama_fasilitas'] ?>" placeholder="Nama Fasilitas" autocomplete="off">
-                                <?php if (isset($validation)) : ?>
-                                    <span class="badge badge-danger"> <?= $validation->getError('nama_fasilitas') ?></span>
-                                <?php endif; ?>
-                            </div>
+                                <div class="form-group col-md-4">
+                                    <label for="id_sub_billing" class="col-form-label">Nama Fasilitas</label>
+                                    <select name="id_sub_billing" class="form-control" id="id_sub_billing">
+                                        <?php foreach ($sub as $billing) { ?>
+                                            <option <?php if ($billing['id_sub_billing'] == $fasilitas['id_sub_billing']) {
+                                                        echo 'selected="selected"';
+                                                    } ?> value="<?php echo $billing['keterangan'] ?>"><?php echo $billing['keterangan'] ?> </option>
+                                        <?php } ?>
+                                    </select>
+                                    <?php if (isset($validation)) : ?>
+                                        <span class="badge badge-danger"> <?= $validation->getError('id_sub_billing') ?></span>
+                                    <?php endif; ?>
+                                </div>
                             <div class="form-group col-md-4">
                                     <label for="id_header_billing" class="col-form-label">Jenis</label>
                                     <select name="id_header_billing" class="form-control" id="id_header_billing">

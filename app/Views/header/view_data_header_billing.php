@@ -15,7 +15,7 @@
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">Home</a></li>
+                            <li class="breadcrumb-item"><a href="<?= base_url() ?>">Home</a></li>
                             <li class="breadcrumb-item active">Data Header Billing & Sub Billing</li>
                         </ol>
                     </div>
@@ -129,7 +129,7 @@
                 <button type="button" class="close text-white" data-dismiss="modal" aria-hidden="true">×</button>
             </div>
             <div class="modal-body">
-                <form action="<?= site_url('headerBilling/add') ?>" method="POST" class="no-validated">
+                <form action="<?= base_url('headerBilling/add') ?>" method="POST" class="no-validated">
                     <?= csrf_field(); ?>
                     <div>
                         <div class="mb-3">
@@ -165,7 +165,7 @@
                     <button type="button" class="close text-white" data-dismiss="modal" aria-hidden="true">×</button>
                 </div>
                 <div class="modal-body">
-                    <form action="<?= site_url('headerBilling/edit') ?>" method="POST" class="no-validated">
+                    <form action="<?= base_url('headerBilling/edit') ?>" method="POST" class="no-validated">
                         <?= csrf_field(); ?>
                         <div>
                             <div class="mb-3">
@@ -194,7 +194,7 @@
 <?php endforeach ?>
 
 <?php foreach ($header as $hd) : ?>
-    <form action="headerBilling/delete" method="post">
+    <form action="<?= base_url('headerBilling/delete') ?>" method="post">
         <div id="delete<?= $hd['id_header_billing']; ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
@@ -232,7 +232,7 @@
                 <button type="button" class="close text-white" data-dismiss="modal" aria-hidden="true">×</button>
             </div>
             <div class="modal-body">
-                <form action="<?= site_url('headerBilling/addSub') ?>" method="POST" class="no-validated">
+                <form action="<?= base_url('headerBilling/addSub') ?>" method="POST" class="no-validated">
                     <?= csrf_field(); ?>
                     <div>
                         <div class="mb-3">
@@ -268,7 +268,7 @@
                     <button type="button" class="close text-white" data-dismiss="modal" aria-hidden="true">×</button>
                 </div>
                 <div class="modal-body">
-                    <form action="<?= site_url('headerBilling/editSub') ?>" method="POST" class="no-validated">
+                    <form action="<?= base_url('headerBilling/editSub') ?>" method="POST" class="no-validated">
                         <?= csrf_field(); ?>
                         <div>
                             <div class="mb-3">
@@ -297,7 +297,7 @@
 <?php endforeach ?>
 
 <?php foreach ($sub as $sb) : ?>
-    <form action="headerBilling/deleteSub" method="post">
+    <form action="<?= base_url('headerBilling/deleteSub') ?>" method="post">
         <div id="deleteSub<?= $sb['id_sub_billing']; ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">

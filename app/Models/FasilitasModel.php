@@ -3,18 +3,18 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
-
+ 
 class fasilitasModel extends Model
 {
     protected $table      = 'm_fasilitas';
     protected $primaryKey = 'id_fasilitas';
-    protected $allowedFields = ['id_fasilitas', 'nama_fasilitas', 'jenis', 'qty', 'kapasitas', 'harga', 'status'];
+    protected $allowedFields = ['id_fasilitas', 'id_header_billing','id_sub_billing','nama_fasilitas', 'qty', 'kapasitas', 'harga', 'status'];
 
     public function rules()
     {
         return
             [
-                'nama_fasilitas' => 
+                'id_sub_billing' => 
                 [
                     'label'  => 'Nama Fasilitas',
                     'rules'  => 'required',
@@ -22,9 +22,9 @@ class fasilitasModel extends Model
                         'required' => ' {field} mohon diisi',
                     ],
                 ],
-                'id_header_billing' =>
+                'id_header_billing' => 
                 [
-                    'label'  => 'Jenis',
+                    'label'  => 'Jenis Fasilitas',
                     'rules'  => 'required',
                     'errors' => [
                         'required' => ' {field} mohon diisi',
@@ -78,7 +78,8 @@ class fasilitasModel extends Model
     public function getListFasilitas()
     {
         $builder = $this->db->table('m_fasilitas');
-        $builder->select('header_billing.*, header_billing.keterangan as ket1');
+        $builder->select('header_billing.*, header_billing.keterangan as ket1, sub_billing.keterangan as ket2');
+        $builder->join('sub_billing', 'sub_billing.id_sub_billing = sub_billing.id_sub_billing', 'left');
         $builder->join('header_billing', 'header_billing.id_header_billing = header_billing.id_header_billing', 'left');
         $query   = $builder->get();
         return $query->getResultArray(); 

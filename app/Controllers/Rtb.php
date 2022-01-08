@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use \App\Models\RtbModel;
+use \App\Models\PaymentModel;
 
 class Rtb extends BaseController
 {
@@ -10,25 +11,27 @@ class Rtb extends BaseController
     {
         $this->validation =  \Config\Services::validation();
         $this->RtbModel = new RtbModel();
+        $this->PaymentModel = new PaymentModel();
     }
     public function index()
     {
         $data = [
-            'title'     => 'Data Real Time Billing',
-            'order'     => $this->RtbModel->GetOrder(),
-            'rtb'       => $this->RtbModel->GetAll(),
+            'title'     => 'Data Real Time Billing', //judul
+            'cust'     => $this->RtbModel->getCustBill(), //ini untuk manggil di view 
         ];
-        echo view('Rtb/ListRtb', $data);
+        echo view('Rtb/ListRtb', $data); // bakal nge load ke list rtb
     }
-    function priceGet()
+    public function billing($id_customer)
     {
-        $id = $this->input->post('id');
-        $data = $this->RtbModel->Price($id);
-        echo json_encode($data);
+        $data = [
+            'title'     => 'Detail Real Time Billing Customer', //judul
+            'order'     => $this->PaymentModel->GetInfoPaymentPerProduct($id_customer), //ini untuk manggil di view 
+        ];
+        echo view('Rtb/ListDetailRtb', $data); // bakal nge load ke list rtb
     }
-    public function ubahstatus($id)
+    public function ubahstatus($id_customer)
     {
-        $edit = $this->RtbModel->ubahstatus($id);
+        $edit = $this->RtbModel->ubahstatus($id_customer);
         return redirect()->to('Rtb');
     }
 }

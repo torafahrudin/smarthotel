@@ -15,7 +15,7 @@
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">Home</a></li>
+                            <li class="breadcrumb-item"><a href="<?= base_url() ?>">Home</a></li>
                             <li class="breadcrumb-item active">Data Kamar</li>
                         </ol>
                     </div>
@@ -27,7 +27,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="pl-2">
-                    <a href="/room/add" class="btn btn-primary waves-effect waves-light text-white">
+                    <a href="<?= base_url('room/add') ?>" class="btn btn-primary waves-effect waves-light text-white">
                         <i class="mdi mdi-plus-thick fa-lg text-white"></i> Tambah
                     </a>
                 </div>
@@ -39,8 +39,8 @@
                 <?php foreach ($room as $rm) : ?>
                     <div class="col-md-6 col-xl-3 col-lg-4 natural personal">
                         <div class="gal-detail thumb">
-                            <a href="assets/images/room/<?= $rm['room_image']; ?>" class="image-popup" title="Screenshot-1">
-                                <img src="assets/images/room/<?= $rm['room_image']; ?>" class="thumb-img img-fluid">
+                            <a href="<?= base_url('assets/images/room/' . $rm['room_image']) ?>" class="image-popup" title="Screenshot-1">
+                                <img src="<?= base_url('assets/images/room/' . $rm['room_image']) ?>" class="thumb-img img-fluid">
                             </a>
 
                             <div class="text-center">
@@ -52,7 +52,7 @@
                                     <i class="mdi mdi-eye fa-lg text-white"></i>
                                 </a> -->
                                 <a href="<?= base_url('room/edit/' . $rm['id_kamar']) ?>" class="btn btn-warning waves-effect waves-light text-white">
-                                    <i class="mdi mdi-update fa-lg text-white"></i>
+                                    <i class="mdi mdi-circle-edit-outline fa-lg text-white"></i>
                                 </a>
                                 <a href="#" data-toggle="modal" data-target="#delete<?php echo $rm['id_kamar']; ?>" class="btn btn-danger waves-effect waves-light text-white">
                                     <i class="mdi mdi-trash-can fa-lg text-white"></i>
@@ -68,7 +68,7 @@
 
 
 <?php foreach ($room as $rm) : ?>
-    <form action="room/delete" method="post">
+    <form action="<?= base_url('room/delete') ?>" method="post">
         <div id="delete<?= $rm['id_kamar']; ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
@@ -103,27 +103,11 @@
                     <h4 class="modal-title mt-0 text-white">Detail Kamar</h4>
                     <button type="button" class="close text-white" data-dismiss="modal" aria-hidden="true">×</button>
                 </div>
-                <!-- <div class="modal-body">
-                    <div class="card mb-3" style="max-width: 540px;">
-                        <img src="assets/images/room/<?= $rm['room_image']; ?>" class="img-fluid">
-                    </div>
-                </div>
-                <div class="modal-body">
-                    <div class="card mb-3" style="max-width: 540px;">
-                        <div class="card-body">
-                            <h4 class="card-title"><?= $rm['ket1'] . ' ' . $rm['ket2']  ?></h4>
-                            <h5>Kapasitas : <?= $rm['kapasitas'] ?></h5>
-                            <h5>Jumlah : <?= $rm['jumlah'] ?></h5>
-                            <h5>Harga : <?= $rm['harga'] ?></h5>
-                            <h5>Status : <?= $rm['status'] ?></h5>
-                        </div>
-                    </div>
-                </div> -->
                 <div class="modal-body">
                     <div class="card">
                         <div class="card-horizontal">
                             <div class="img-square-wrapper">
-                                <img src="assets/images/room/<?= $rm['room_image']; ?>" class="img-fluid" width="300" height="180">
+                                <img src="<?= base_url('assets/images/room/' . $rm['room_image']) ?>" class="img-fluid" width="300" height="180">
                             </div>
                             <div class="card-body">
                                 <h4 class="card-title"><?= $rm['ket1'] . ' ' . $rm['ket2']  ?></h4>
