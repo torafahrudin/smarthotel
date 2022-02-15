@@ -14,18 +14,18 @@ class AsosiasiruleModel extends Model
     }
 
     public function data_penjualan_bynamaproduk(){
-        // $sql="SELECT a.id_penjualan, GROUP_CONCAT(DISTINCT b.nama_produk ORDER BY b.nama_produk) as nama_produk
-        //             FROM detail_jual as a
-        //             join produk as b
-        //             on (a.item=b.kode_produk)
-        //             GROUP BY  id_penjualan
-        //             ORDER BY 1 ASC";
-        $sql = "SELECT a.kode_penjualan, GROUP_CONCAT(DISTINCT b.nama ORDER BY b.nama) as nama_produk
-                    FROM detail_penjualanresto as a
-                    join produk_resto as b
-                    on (a.kode_produk=b.kode)
-                    GROUP BY  kode_penjualan
+        $sql="SELECT a.id_penjualan, GROUP_CONCAT(DISTINCT b.nama_produk ORDER BY b.nama_produk) as nama_produk
+                    FROM detail_jual as a
+                    join produk as b
+                    on (a.item=b.kode_produk)
+                    GROUP BY  id_penjualan
                     ORDER BY 1 ASC";
+        // $sql = "SELECT a.kode_penjualan, GROUP_CONCAT(DISTINCT b.nama ORDER BY b.nama) as nama_produk
+        //             FROM detail_penjualanresto as a
+        //             join produk_resto as b
+        //             on (a.kode_produk=b.kode)
+        //             GROUP BY  kode_penjualan
+        //             ORDER BY 1 ASC";
         $query = $this->db->query($sql)->getResult();
         $arr=[];
         foreach ($query as $row) {
@@ -37,18 +37,18 @@ class AsosiasiruleModel extends Model
         return $arr;
     }
     public function data_penjualan_bykodeproduk(){
-        // $sql="SELECT a.id_penjualan, GROUP_CONCAT(DISTINCT a.item ORDER BY a.item) as kode_produk
-        //             FROM detail_jual as a
-        //             join produk as b
-        //             on (a.item=b.kode_produk)
-        //             GROUP BY  id_penjualan
-        //             ORDER BY 1 ASC";
-        $sql="SELECT a.kode_penjualan, GROUP_CONCAT(DISTINCT a.kode_produk ORDER BY a.kode_produk) as kode_produk
-                    FROM detail_penjualanresto as a
-                    join produk_resto as b
-                    on (a.kode_produk=b.kode)
-                    GROUP BY  kode_penjualan
+        $sql="SELECT a.id_penjualan, GROUP_CONCAT(DISTINCT a.item ORDER BY a.item) as kode_produk
+                    FROM detail_jual as a
+                    join produk as b
+                    on (a.item=b.kode_produk)
+                    GROUP BY  id_penjualan
                     ORDER BY 1 ASC";
+        // $sql="SELECT a.kode_penjualan, GROUP_CONCAT(DISTINCT a.kode_produk ORDER BY a.kode_produk) as kode_produk
+        //             FROM detail_penjualanresto as a
+        //             join produk_resto as b
+        //             on (a.kode_produk=b.kode)
+        //             GROUP BY  kode_penjualan
+        //             ORDER BY 1 ASC";
         $query = $this->db->query($sql)->getResult();
         $arr=[];
         foreach ($query as $row) {

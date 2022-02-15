@@ -2,12 +2,12 @@
 
 namespace App\Controllers;
 
-// use App\Models\AsosiasiruleModel;
+use App\Models\ProdukModel;
 
 class Restaurant extends BaseController
 {    public function __construct()
     {   session_start();
-         // $this->AsosiasiruleModel = new AsosiasiruleModel();
+         $this->Produkmodel = new ProdukModel();
     }
     public function index()
     {   
@@ -17,12 +17,20 @@ class Restaurant extends BaseController
          echo view('dashboard_cust');
          echo view('footer_cust');
     }
-    public function daftarmenu(){
-        // $data['activmenu']='#609312';
+    public function ourmenu(){
+        $data['produk']=$this->Produkmodel->getAll();
         echo view('dashboard_cust_head');
         echo view('nav_header');
-        echo view('Menu_viewcust/Daftarmenu');
+        echo view('Menu_viewcust/Daftarmenu', $data);
        
+    }
+    public function SinggleProduct($id){
+        $data['produkbyid']=$this->Produkmodel->Produkbyid($id);
+        $data['Rekomendasi']=$this->Produkmodel->Rekomendasi($id);
+        echo view('dashboard_cust_head');
+        echo view('nav_header');
+        echo view('Menu_viewcust/Singgleproduct', $data );
+
     }
     
     public function Asosiasirule(){

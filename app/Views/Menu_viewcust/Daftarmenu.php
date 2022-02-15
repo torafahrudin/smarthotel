@@ -24,7 +24,7 @@
     </section>
     <!-- exclusive deals -->
     <!-- Featured partners -->
-    <section class="featured-partners section-padding-top">
+ <!--    <section class="featured-partners section-padding-top">
         <div class="container">
             <div class="row section-padding-bottom u-line">
                 <div class="col-12">
@@ -124,10 +124,10 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- Featured partners -->
     <!-- trending -->
-    <section class="trending section-padding">
+  <!--   <section class="trending section-padding">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -322,7 +322,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- trending -->
     <!-- fresh deals -->
     <section class="fresh-deals section-padding">
@@ -528,25 +528,26 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-header-left">
-                        <h3 class="text-light-black header-title">More local deals</h3>
+                        <h3 class="text-light-black header-title">Ours Menu</h3>
                     </div>
                 </div>
+                 <?php foreach ($produk as $value){?>
                 <div class="col-lg-4 col-md-6">
                     <div class="product-box mb-xl-20">
                         <div class="product-box-2">
                             <div class="product-img">
-                                <a href="restaurant.html">
+                                <a href="<?php echo base_url('Restaurant/SinggleProduct/'.$value['kode_produk']); ?>">
                                     <img src="<?php    echo base_url() ?>/assetcust/img/deals/88x112/mdeals-1.jpg" class="img-fluid" alt="product-img">
                                 </a>
                             </div>
                             <div class="product-caption">
                                 <div class="title-box">
-                                    <h6 class="product-title"><a href="restaurant.html" class="text-light-black">Lil Johnny’s</a></h6>
+                                    <h6 class="product-title"><a href="<?php echo base_url('Restaurant/SinggleProduct/'.$value['kode_produk']); ?>" class="text-light-black"><?php echo $value['nama_produk']?></a></h6>
                                 </div>
                                 <p class="text-light-white">Continental & Mexican</p>
                                 <div class="product-details">
                                     <div class="price-time"> <span class="text-light-black time">30-40 min</span>
-                                        <span class="text-light-white price">$10 min</span>
+                                        <span class="text-light-white price"><?php echo Rupiah($value['harga_produk']) ?></span>
                                     </div>
                                     <div class="rating"> <span>
                       <i class="fas fa-star text-yellow"></i>
@@ -561,203 +562,22 @@
                             </div>
                         </div>
                         <div class="product-footer-2">
-                            <div class="discount"> <span class="text-success fs-12">$3 off</span>
+                            <a href="#" type="button" class='btn btn-outline-danger btn-sm btn-block btn-add-cart'><i class="fa fa-plus"></i> Masukan Keranjang</a>
+                           <!--  <div class="discount"> <span class="text-success fs-12">$3 off</span>
                             </div>
-                            <div class="discount-coupon"> <span class="text-light-white fs-12">First order only</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="product-box mb-xl-20">
-                        <div class="product-box-2">
-                            <div class="product-img">
-                                <a href="restaurant.html">
-                                    <img src="<?php    echo base_url() ?>/assetcust/img/deals/88x112/mdeals-2.jpg" class="img-fluid" alt="product-img">
-                                </a>
-                            </div>
-                            <div class="product-caption">
-                                <div class="title-box">
-                                    <h6 class="product-title"><a href="restaurant.html" class="text-light-black">Choice Foods</a></h6>
-                                </div>
-                                <p class="text-light-white">Indian, Chinese, Tandoor</p>
-                                <div class="product-details">
-                                    <div class="price-time"> <span class="text-light-black time">30-40 min</span>
-                                        <span class="text-light-white price">$10 min</span>
-                                    </div>
-                                    <div class="rating"> <span>
-                      <i class="fas fa-star text-yellow"></i>
-                      <i class="fas fa-star text-yellow"></i>
-                      <i class="fas fa-star text-yellow"></i>
-                      <i class="fas fa-star text-yellow"></i>
-                      <i class="fas fa-star text-yellow"></i>
-                    </span>
-                                        <span class="text-light-white text-right">4225 ratings</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-footer-2">
-                            <div class="discount"> <span class="text-success fs-12">$3 off</span>
-                            </div>
-                            <div class="discount-coupon"> <span class="text-light-white fs-12">First order only</span>
+                            <div class="discount-coupon"> <span class="text-light-white fs-12">First order only</span> -->
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="product-box mb-xl-20">
-                        <div class="product-box-2">
-                            <div class="product-img">
-                                <a href="restaurant.html">
-                                    <img src="<?php    echo base_url() ?>/assetcust/img/deals/88x112/mdeals-3.jpg" class="img-fluid" alt="product-img">
-                                </a>
-                            </div>
-                            <div class="product-caption">
-                                <div class="title-box">
-                                    <h6 class="product-title"><a href="restaurant.html" class="text-light-black">Great Burger</a></h6>
-                                </div>
-                                <p class="text-light-white">American, Fast Food</p>
-                                <div class="product-details">
-                                    <div class="price-time"> <span class="text-light-black time">30-40 min</span>
-                                        <span class="text-light-white price">$10 min</span>
-                                    </div>
-                                    <div class="rating"> <span>
-                      <i class="fas fa-star text-yellow"></i>
-                      <i class="fas fa-star text-yellow"></i>
-                      <i class="fas fa-star text-yellow"></i>
-                      <i class="fas fa-star text-yellow"></i>
-                      <i class="fas fa-star text-yellow"></i>
-                    </span>
-                                        <span class="text-light-white text-right">4225 ratings</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-footer-2">
-                            <div class="discount"> <span class="text-success fs-12">$3 off</span>
-                            </div>
-                            <div class="discount-coupon"> <span class="text-light-white fs-12">First order only</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="product-box mb-xl-20">
-                        <div class="product-box-2">
-                            <div class="product-img">
-                                <a href="restaurant.html">
-                                    <img src="<?php    echo base_url() ?>/assetcust/img/deals/88x112/mdeals-4.jpg" class="img-fluid" alt="product-img">
-                                </a>
-                            </div>
-                            <div class="product-caption">
-                                <div class="title-box">
-                                    <h6 class="product-title"><a href="restaurant.html" class="text-light-black">Flavor Town</a></h6>
-                                </div>
-                                <p class="text-light-white">Breakfast, Lunch & Dinner</p>
-                                <div class="product-details">
-                                    <div class="price-time"> <span class="text-light-black time">30-40 min</span>
-                                        <span class="text-light-white price">$10 min</span>
-                                    </div>
-                                    <div class="rating"> <span>
-                      <i class="fas fa-star text-yellow"></i>
-                      <i class="fas fa-star text-yellow"></i>
-                      <i class="fas fa-star text-yellow"></i>
-                      <i class="fas fa-star text-yellow"></i>
-                      <i class="fas fa-star text-yellow"></i>
-                    </span>
-                                        <span class="text-light-white text-right">4225 ratings</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-footer-2">
-                            <div class="discount"> <span class="text-success fs-12">$3 off</span>
-                            </div>
-                            <div class="discount-coupon"> <span class="text-light-white fs-12">First order only</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="product-box mb-xl-20">
-                        <div class="product-box-2">
-                            <div class="product-img">
-                                <a href="restaurant.html">
-                                    <img src="<?php    echo base_url() ?>/assetcust/img/deals/88x112/mdeals-5.jpg" class="img-fluid" alt="product-img">
-                                </a>
-                            </div>
-                            <div class="product-caption">
-                                <div class="title-box">
-                                    <h6 class="product-title"><a href="restaurant.html" class="text-light-black">Big Bites</a></h6>
-                                </div>
-                                <p class="text-light-white">Pizzas, Fast Food</p>
-                                <div class="product-details">
-                                    <div class="price-time"> <span class="text-light-black time">30-40 min</span>
-                                        <span class="text-light-white price">$10 min</span>
-                                    </div>
-                                    <div class="rating"> <span>
-                      <i class="fas fa-star text-yellow"></i>
-                      <i class="fas fa-star text-yellow"></i>
-                      <i class="fas fa-star text-yellow"></i>
-                      <i class="fas fa-star text-yellow"></i>
-                      <i class="fas fa-star text-yellow"></i>
-                    </span>
-                                        <span class="text-light-white text-right">4225 ratings</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-footer-2">
-                            <div class="discount"> <span class="text-success fs-12">$3 off</span>
-                            </div>
-                            <div class="discount-coupon"> <span class="text-light-white fs-12">First order only</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="product-box mb-xl-20">
-                        <div class="product-box-2">
-                            <div class="product-img">
-                                <a href="restaurant.html">
-                                    <img src="<?php    echo base_url() ?>/assetcust/img/deals/88x112/mdeals-6.jpg" class="img-fluid" alt="product-img">
-                                </a>
-                            </div>
-                            <div class="product-caption">
-                                <div class="title-box">
-                                    <h6 class="product-title"><a href="restaurant.html" class="text-light-black">Smile N’ Delight</a></h6>
-                                </div>
-                                <p class="text-light-white">Desserts, Beverages</p>
-                                <div class="product-details">
-                                    <div class="price-time"> <span class="text-light-black time">30-40 min</span>
-                                        <span class="text-light-white price">$10 min</span>
-                                    </div>
-                                    <div class="rating"> <span>
-                      <i class="fas fa-star text-yellow"></i>
-                      <i class="fas fa-star text-yellow"></i>
-                      <i class="fas fa-star text-yellow"></i>
-                      <i class="fas fa-star text-yellow"></i>
-                      <i class="fas fa-star text-yellow"></i>
-                    </span>
-                                        <span class="text-light-white text-right">4225 ratings</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-footer-2">
-                            <div class="discount"> <span class="text-success fs-12">$3 off</span>
-                            </div>
-                            <div class="discount-coupon"> <span class="text-light-white fs-12">First order only</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-md-center">
+                
+               
+               <?php } ?>
+               </div>
+              
+            <!-- <div class="row justify-content-md-center">
                 <div class="col-md-2"> <a href="restaurant.html" class="btn-first white-btn text-light-green fw-600">View More</a>
                 </div>
-            </div>
+            </div> -->
         </div>
     </section>
     <!-- local deals -->

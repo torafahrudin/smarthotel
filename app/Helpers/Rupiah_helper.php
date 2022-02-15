@@ -1,5 +1,5 @@
 <?php
-    function rupiah($harga){
+    function Rupiah($harga){
         return "Rp ".number_format($harga);
     }
 

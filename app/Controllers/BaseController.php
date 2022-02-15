@@ -35,7 +35,7 @@ class BaseController extends Controller
      *
      * @var array
      */
-    protected $helpers = ['auth', 'format_helper', 'form', 'file', 'url'];
+    protected $helpers = ['auth', 'format_helper', 'form', 'file', 'url', 'Rupiah_helper'];
 
     /**
      * CI3's $autoload['libraries']

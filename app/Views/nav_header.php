@@ -42,7 +42,7 @@
                                 </a>
                             </div>
                             <div class="gem-points">
-                                <a href="<?php echo  base_url('Restaurant/daftarmenu') ?>" class="text-light-yellow fw-500 fs-18 <?php echo (isset($aktivmenu)) ? $aktivmenu : ''; ?>"> <!-- <i class="fas fa-concierge-bell"></i> -->
+                                <a href="<?php echo  base_url('Restaurant/ourmenu') ?>" class="text-light-yellow fw-500 fs-18 <?php echo (isset($aktivmenu)) ? $aktivmenu : ''; ?>"> <!-- <i class="fas fa-concierge-bell"></i> -->
                                     <span>Menu</span>
                                 </a>
                             </div>
@@ -174,16 +174,16 @@
                         <div class="mobile-address">
                             <a href="#" class="delivery-add" data-toggle="modal" data-target="#address-box"> <span class="address">Brooklyn, NY</span>
                             </a>
-                        </div>
+                        </div> --
                         <div class="sorting-addressbox"> <span class="full-address text-light-green">Brooklyn, NY 10041</span>
                             <div class="btns">
                                 <div class="filter-btn">
                                     <button type="button"><i class="fas fa-sliders-h text-light-green fs-18"></i>
-                  </button> <span class="text-light-green">Sort</span>
+                                    /button> <span class="text-light-green">Sort</span>
                                 </div>
                                 <div class="filter-btn">
                                     <button type="button"><i class="fas fa-filter text-light-green fs-18"></i>
-                  </button> <span class="text-light-green">Filter</span>
+                                    </button> <span class="text-light-green">Filter</span>
                                 </div>
                             </div>
                         </div>
