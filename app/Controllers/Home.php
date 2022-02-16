@@ -13,4 +13,8 @@ class Home extends BaseController
         ];
         return view('dashboard', $data);
     }
+
+    public function tes(){
+        echo "hello world";
+    }
 }
