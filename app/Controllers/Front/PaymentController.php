@@ -18,14 +18,14 @@ class PaymentController extends BaseController
         $cart = $this->cart->get();
         // Required
         $total = 0;
-foreach ($bill as $row) :
-    $item_details[] = array(
-        'id' => $row->id_kamar,
-        'price' => $row->harga,
-        'quantity' => 1,
-        'name' => $row->id_kamar
-    );
-    $total = $total + $row->harga;
+        foreach ($cart['data'] as $row) {
+            $item_details[] = array(
+                'id' => $row['kode_produk'],
+                'price' => $row['harga_unit'],
+                'quantity' => $row['qty'],
+                'name' => $row['nama_produk']
+            );
+            $total = $total + $row['total'];
         }
 
         $transaction_details = array(

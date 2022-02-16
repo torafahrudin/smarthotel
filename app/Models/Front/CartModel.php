@@ -67,7 +67,7 @@ class CartModel extends Model
 
     public function sales_id()
     {
-        $sql =  $this->db->table('master_penjualanresto')
+        $sql =  $this->db->table('penjualan_m')
             ->select('RIGHT(kode_penjualan,8) as kode', false)
             ->orderBy('kode', 'DESC')
             ->limit(1)
@@ -144,17 +144,17 @@ class CartModel extends Model
     public function store($data)
     {
         $user_id = 'HTL-USR.00001'; //dont include to production mode
-        $produk_resto = $this->db->table('produk_resto')->where('kode', $data['kode_produk'])->get()->getRow();
+        $produk = $this->db->table('produk')->where('kode', $data['kode_produk'])->get()->getRow();
         $cart = $this->db->table('carts')->where('kode_produk', $data['kode_produk'])->where('user_id', $user_id)->get()->getResultArray();
 
         $insert = [
             'kode' => $data['kode'],
             'tanggal' => date('Y-m-d'),
-            'kode_produk' => $produk_resto->kode,
-            'nama_produk' => $produk_resto->nama,
+            'kode_produk' => $produk->kode,
+            'nama_produk' => $produk->nama,
             'qty' => 1,
-            'harga_unit' => $produk_resto->harga_satuan,
-            'total' => 1 * $produk_resto->harga_satuan,
+            'harga_unit' => $produk->harga_satuan,
+            'total' => 1 * $produk->harga_satuan,
             'user_id' => $user_id,
             'status' => 'waiting'
         ];
@@ -164,7 +164,7 @@ class CartModel extends Model
             $update = [
                 'tanggal' => date('Y-m-d'),
                 'qty' => 1 + $cart[0]['qty'],
-                'total' => (1 + $cart[0]['qty']) * $produk_resto->harga_satuan,
+                'total' => (1 + $cart[0]['qty']) * $produk->harga_satuan,
             ];
             $this->db->table('carts')->where('kode_produk', $data['kode_produk'])->where('user_id', $user_id)->update($update);
             $this->db->transComplete();
@@ -178,7 +178,7 @@ class CartModel extends Model
             $res = [
                 'success' => true,
                 'message' => 'success',
-                'data' => $produk_resto
+                'data' => $produk
             ];
         } else {
             $res = [
@@ -246,8 +246,8 @@ class CartModel extends Model
         }
         $this->db->transStart();
         $res = $this->db->table('online_payment_history')->insert($data);
-        $this->db->table('master_penjualanresto')->insert($insert_sales_m);
-        $this->db->table('detail_penjualanresto')->insertBatch($item_details);
+        $this->db->table('penjualan_m')->insert($insert_sales_m);
+        $this->db->table('penjualan_d')->insertBatch($item_details);
         $this->db->table('carts')->where('user_id', $user_id)->delete();
         $this->db->transComplete();
         if ($this->db->transStatus() === true) {
@@ -313,20 +313,20 @@ class CartModel extends Model
         switch ($trans_status) {
             case 'pending':
                 $this->db->table('online_payment_history')->where('order_id', $data['order_id'])->where('transaction_id', $data['transaction_id'])->update($update_history);
-                $this->db->table('master_penjualanresto')->where('no_bill', $data['order_id'])->update($update_penjualan);
+                $this->db->table('penjualan_m')->where('no_bill', $data['order_id'])->update($update_penjualan);
                 break;
             case 'settlement':
                 $this->db->table('online_payment_history')->where('order_id', $data['order_id'])->where('transaction_id', $data['transaction_id'])->update($update_history);
-                $this->db->table('master_penjualanresto')->where('no_bill', $data['order_id'])->update($update_penjualan);
-                $this->db->table('jurnal_umumresto')->insertBatch($gl);
+                $this->db->table('penjualan_m')->where('no_bill', $data['order_id'])->update($update_penjualan);
+                $this->db->table('jurnal_umum')->insertBatch($gl);
                 break;
             case 'expire':
                 $this->db->table('online_payment_history')->where('order_id', $data['order_id'])->where('transaction_id', $data['transaction_id'])->update($update_history);
-                $this->db->table('master_penjualanresto')->where('no_bill', $data['order_id'])->update($update_penjualan);
+                $this->db->table('penjualan_m')->where('no_bill', $data['order_id'])->update($update_penjualan);
                 break;
             case 'deny':
                 $this->db->table('online_payment_history')->where('order_id', $data['order_id'])->where('transaction_id', $data['transaction_id'])->update($update_history);
-                $this->db->table('master_penjualanresto')->where('no_bill', $data['order_id'])->update($update_penjualan);
+                $this->db->table('penjualan_m')->where('no_bill', $data['order_id'])->update($update_penjualan);
                 break;
         }
 

@@ -6,23 +6,17 @@ use CodeIgniter\Model;
 
 class ProdukModel extends Model
 {
- protected $table = 'Produk';
+    protected $DBGroup          = 'default';
+    protected $table            = 'produk';
+    protected $primaryKey       = 'kode';
+    protected $returnType       = 'array';
+    protected $useSoftDeletes   = false;
+    protected $protectFields    = true;
+    protected $allowedFields    = ['kode', 'nama', 'harga_satuan'];
 
-   	public function getAll(){
-        return $this->findAll();
-    }
-
-    public function Produkbyid($id){
-       $sql = "SELECT *  from produk where kode_produk=?";
-       return $query = $this->db->query($sql, array($id))->getResult();
-    }
-    public function Rekomendasi($id){
-       $sql ="SELECT DISTINCT a.id_produk, a.produk_rekomendasi, b.* from  detail_rule as a join produk as b on (a.produk_rekomendasi=b.kode_produk) HAVING a.id_produk=?";
-       return $query = $this->db->query($sql, array($id))->getResult();
-    }
     public function trans_id()
     {
-        $sql =  $this->db->table('produk_resto')
+        $sql =  $this->db->table('produk')
             ->select('RIGHT(kode,5) as kode', false)
             ->orderBy('kode', 'DESC')
             ->limit(1)
@@ -41,4 +35,3 @@ class ProdukModel extends Model
         return $kode_final;
     }
 }
-?>

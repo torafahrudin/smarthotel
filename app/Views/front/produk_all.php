@@ -28,7 +28,7 @@
      function load_produk() {
          $.ajax({
              type: 'get',
-             url: "<?= site_url('get-produk_resto') ?>",
+             url: "<?= site_url('get-produk') ?>",
              dataType: 'json',
              success: function(res) {
                  var data = res.data;

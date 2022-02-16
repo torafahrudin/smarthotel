@@ -13,13 +13,15 @@ class Config
      * 
      * @static
      */
-    public static $serverKey;
+    public static $serverKey = "SB-Mid-server-nmcrYh-7cSt6dfiIm8ChQ2Z-";  //krisna
+    // public static $serverKey = "SB-Mid-server-PStK2fYzuNMIEUXQNCbvkNtk";  //developer
     /**
      * Your merchant's client key
      * 
      * @static
      */
-    public static $clientKey;
+    public static $clientKey = "SB-Mid-client-QfPcl_29pULqFU7F"; //krisna
+    // public static $clientKey = "SB-Mid-client-i_spTxDkzrqydmsi"; //developer
     /**
      * True for production
      * false for sandbox mode
@@ -79,7 +81,7 @@ class Config
     public static function getBaseUrl()
     {
         return Config::$isProduction ?
-        Config::PRODUCTION_BASE_URL : Config::SANDBOX_BASE_URL;
+            Config::PRODUCTION_BASE_URL : Config::SANDBOX_BASE_URL;
     }
 
     /**
@@ -90,6 +92,6 @@ class Config
     public static function getSnapBaseUrl()
     {
         return Config::$isProduction ?
-        Config::SNAP_PRODUCTION_BASE_URL : Config::SNAP_SANDBOX_BASE_URL;
+            Config::SNAP_PRODUCTION_BASE_URL : Config::SNAP_SANDBOX_BASE_URL;
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\MenuModel;
 use CodeIgniter\Controller;
 use CodeIgniter\HTTP\CLIRequest;
 use CodeIgniter\HTTP\IncomingRequest;
@@ -35,14 +36,7 @@ class BaseController extends Controller
      *
      * @var array
      */
-    protected $helpers = ['auth', 'format_helper', 'form', 'file', 'url', 'Rupiah_helper'];
-
-    /**
-     * CI3's $autoload['libraries']
-     *
-     * @var array
-     */
-    protected $libraries = ['database', 'session'];
+    protected $helpers = ['date_helper', 'rupiah_helper'];
 
     /**
      * Constructor.
@@ -55,5 +49,7 @@ class BaseController extends Controller
         // Preload any models, libraries, etc, here.
 
         // E.g.: $this->session = \Config\Services::session();
+
+        $this->menu = new MenuModel();
     }
 }

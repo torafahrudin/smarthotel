@@ -1,4 +1,4 @@
-  <?= $this->extend('_partials/app') ?>
+<?= $this->extend('_partials/app') ?>
 <?= $this->section('content') ?>
 <!-- Start Content-->
 <div class="container-fluid">
@@ -7,7 +7,7 @@
             <div class="card-box">
                 <table id="table-data" class="table table-hover table-data">
                     <thead>
-                        <tr>
+                        <tr style="background-color: #38b000; color:#fff;">
                             <th>#</th>
                             <th>ID</th>
                             <th>Nama</th>

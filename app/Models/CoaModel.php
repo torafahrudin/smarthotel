@@ -6,58 +6,43 @@ use CodeIgniter\Model;
 
 class CoaModel extends Model
 {
-    protected $table      = 'akun';
-    protected $primaryKey = 'id_akun';
-    protected $allowedFields = ['id_akun', 'nama_akun', 'kategori', 'saldo_normal', 'sa'];
+    protected $DBGroup          = 'default';
+    protected $table            = 'coa_items';
+    protected $primaryKey       = 'kode';
+    protected $returnType       = 'array';
 
-    public function getCoa()
+    protected $allowedFields    = ['kode', 'nama', 'dc', 'posted', 'sub_id', 'lock'];
+
+    public function trans_id($sub_id)
     {
-        return $this->findAll();
+        $sql =  $this->db->table('coa_items')
+            ->select('RIGHT(kode,4) as kode', false)
+            ->where('sub_id', $sub_id)
+            ->orderBy('kode', 'DESC')
+            ->limit(1)
+            ->get();
+
+        if ($sql->getNumRows() <> 0) {
+            $data = $sql->getRow();
+            $kode = intval($data->kode) + 1;
+        } else {
+            $kode = 1;
+        }
+        $prefix = $sub_id;
+        $batas = str_pad($kode, 4, "0", STR_PAD_LEFT);
+        $kode_final = $prefix . '' . $batas;
+
+        return $kode_final;
     }
 
-    public function getById($id)
+    public function get_data()
     {
-        return $this->where(['id' => $id])->first();
-    }
+        $sql = $this->db->table('coa_items as a')
+            ->select('a.kode,a.nama,a.dc,a.posted,a.lock,concat(a.sub_id," - ",b.nama) as kategori')
+            ->join('coa_subheads as b', 'a.sub_id=b.kode')
+            ->get()
+            ->getResultArray();
 
-    public function getListAkun()
-    {
-        $builder = $this->db->table('akun');
-        $query   = $builder->get();
-        return $query->getResultArray();
-    }
-
-    public function getListAkunTetap()
-    {
-        $builder = $this->db->table('aktiva');
-        $builder->where('id_akun', '121');
-        $query   = $builder->get();
-        return $query->getResultArray();
-    }
-
-    public function getListAkunLancar()
-    {
-        $builder = $this->db->table('aktiva');
-        $builder->where('id_akun', '112');
-        $query   = $builder->get();
-        return $query->getResultArray();
-    }
-
-    public function createCoa($data)
-    {
-        $query = $this->db->table('akun')->insert($data);
-        return $query;
-    }
-
-    public function updateCoa($data, $id)
-    {
-        $query = $this->db->table('akun')->update($data, array('id_akun' => $id));
-        return $query;
-    }
-
-    public function deleteCoa($id)
-    {
-        $query = $this->db->table('akun')->delete(array('id_akun' => $id));
-        return $query;
+        return $sql;
     }
 }

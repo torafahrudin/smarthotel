@@ -135,6 +135,12 @@
                             <span> Asociation Rule </span>
                         </a>
                     </li>
+                      <li>
+                        <a href="<?php echo base_url('KmeansController') ; ?>">
+                            <i class="mdi mdi-clipboard-file fa-lg"></i>
+                            <span> K-Means </span>
+                        </a>
+                    </li>
                     <li class="menu-title">Report</li>
 
                     <li>

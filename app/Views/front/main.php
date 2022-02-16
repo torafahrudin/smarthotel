@@ -18,23 +18,23 @@
     <link rel="apple-touch-icon-precomposed" href="#">
     <link rel="shortcut icon" href="#">
     <!-- Bootstrap -->
-    <link href="<?= base_url() ?>/assetcust/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?= base_url() ?>/front/assets/css/bootstrap.min.css" rel="stylesheet">
     <!-- Fontawesome -->
-    <link href="<?= base_url() ?>/assetcust/css/font-awesome.css" rel="stylesheet">
+    <link href="<?= base_url() ?>/front/assets/css/font-awesome.css" rel="stylesheet">
     <!-- Flaticons -->
-    <link href="<?= base_url() ?>/assetcust/css/font/flaticon.css" rel="stylesheet">
+    <link href="<?= base_url() ?>/front/assets/css/font/flaticon.css" rel="stylesheet">
     <!-- Swiper Slider -->
-    <link href="<?= base_url() ?>/assetcust/css/swiper.min.css" rel="stylesheet">
+    <link href="<?= base_url() ?>/front/assets/css/swiper.min.css" rel="stylesheet">
     <!-- Range Slider -->
-    <link href="<?= base_url() ?>/assetcust/css/ion.rangeSlider.min.css" rel="stylesheet">
+    <link href="<?= base_url() ?>/front/assets/css/ion.rangeSlider.min.css" rel="stylesheet">
     <!-- magnific popup -->
-    <link href="<?= base_url() ?>/assetcust/css/magnific-popup.css" rel="stylesheet">
+    <link href="<?= base_url() ?>/front/assets/css/magnific-popup.css" rel="stylesheet">
     <!-- Nice Select -->
-    <link href="<?= base_url() ?>/assetcust/css/nice-select.css" rel="stylesheet">
+    <link href="<?= base_url() ?>/front/assets/css/nice-select.css" rel="stylesheet">
     <!-- Custom Stylesheet -->
-    <link href="<?= base_url() ?>/assetcust/css/style.css" rel="stylesheet">
+    <link href="<?= base_url() ?>/front/assets/css/style.css" rel="stylesheet">
     <!-- Custom Responsive -->
-    <link href="<?= base_url() ?>/assetcust/css/responsive.css" rel="stylesheet">
+    <link href="<?= base_url() ?>/front/assets/css/responsive.css" rel="stylesheet">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&amp;display=swap" rel="stylesheet">
     <!-- place -->
@@ -51,7 +51,7 @@
                         <div class="logo mainNavCol">
                             <a href="home" class="menu-link">
                                 <!-- <img src="<?= base_url() ?>/front/assets/img/logo.png" class="img-fluid" alt="Logo"> -->
-                                <h2 class="m-2">Restoran</h2>
+                                <h2 class="m-2">Ahadiat</h2>
                             </a>
                         </div>
                         <!-- logo -->
@@ -62,22 +62,22 @@
                         </div>
                         <div class="right-side fw-700 mainNavCol">
                             <div class="gem-points">
-                                <a href="produk_all" class="menu-link"> <i class="fas fa-concierge-bell" style="color:#E5CA01;"></i>
-                                    <span style="color:#E5CA01;">Order Now</span>
+                                <a href="produk_all" class="menu-link"> <i class="fas fa-concierge-bell"></i>
+                                    <span>Order Now</span>
                                 </a>
                             </div>
                             <div class="gem-points">
-                                <a href="myorder" class="menu-link"> <i class="fas fa-clipboard-list" style="color:#E5CA01;"></i>
-                                    <span style="color:#E5CA01;">My Order</span>
+                                <a href="myorder" class="menu-link"> <i class="fas fa-clipboard-list"></i>
+                                    <span>My Order</span>
                                 </a>
                             </div>
                             <div class="gem-points">
-                                <a href="checkout" class="menu-link"> <i class="fas fa-credit-card" style="color:#E5CA01;"></i>
-                                    <span style="color:#E5CA01;">Payment</span>
+                                <a href="checkout" class="menu-link"> <i class="fas fa-credit-card"></i>
+                                    <span>Payment</span>
                                 </a>
                             </div>
-                            <div class="catring parent-megamenu">
-                                <a href="#"> <span style="color:#E5CA01;">Pages <i class="fas fa-caret-down"></i></span>
+                            <!-- <div class="catring parent-megamenu">
+                                <a href="#"> <span>Pages <i class="fas fa-caret-down"></i></span>
                                     <i class="fas fa-bars"></i>
                                 </a>
                                 <div class="megamenu">
@@ -176,12 +176,12 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
 
                             <!-- user account -->
                             <div class="user-details p-relative">
                                 <a href="#" class="text-light-white fw-500">
-                                    <img src="<?= base_url() ?>/front/assets/img/user-1.png" class="rounded-circle" style="color:#E5CA01;" alt="userimg"> <span style="color:#E5CA01;">Hi, Kate</span>
+                                    <img src="<?= base_url() ?>/front/assets/img/user-1.png" class="rounded-circle" alt="userimg"> <span>Hi, Kate</span>
                                 </a>
                                 <div class="user-dropdown">
                                     <ul>
@@ -242,7 +242,7 @@
 
                             <!-- user notification -->
                             <div class="cart-btn notification-btn">
-                                <a href="#" class="text-light-green fw-700"> <i class="fas fa-bell" style="color:#E5CA01;"></i>
+                                <a href="#" class="text-light-green fw-700"> <i class="fas fa-bell"></i>
                                     <span class="user-alert-notification"></span>
                                 </a>
                                 <div class="notification-dropdown">
@@ -271,7 +271,7 @@
 
                             <!-- user cart -->
                             <div class="cart-btn">
-                                <a href="cart" class="text-light-green btn-cart menu-link fw-700"> <i class="fas fa-shopping-bag" style="color:#E5CA01;"></i>
+                                <a href="cart" class="text-light-green btn-cart menu-link fw-700"> <i class="fas fa-shopping-bag"></i>
                                     <span id="user-alert-cart" class="user-alert-cart">0</span>
                                 </a>
                             </div>
@@ -499,7 +499,7 @@
                 url: "<?= site_url('total-cart') ?>",
                 dataType: 'json',
                 success: function(res) {
-                    console.log(res);
+
                     $('#user-alert-cart').html(res.total)
                 }
             });

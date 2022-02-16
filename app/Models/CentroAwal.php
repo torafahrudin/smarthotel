@@ -7,8 +7,8 @@ use CodeIgniter\Model;
 class CentroAwal extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'master_refcenter';
+    protected $table            = 'ref_center';
     protected $primaryKey       = 'id_ref';
     protected $useAutoIncrement = true;
-    protected $allowedFields    = ['id_ref', 'nama',];
+    protected $allowedFields    = ['id_ref', 'nama', 'y', 'x'];
 }

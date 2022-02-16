@@ -34,7 +34,7 @@
                  if (res.status) {
                      for (let i = 0; i < data.length; i++) {
                          var line = data[i];
-                         html += `  <div class="recipt-sec padding-20">
+                         html += `  <div class="recipt-sec padding-20 mt-4">
                          <div class="recipt-name title u-line full-width mb-xl-20">
                              <div class="recipt-name-box">
                                  <h5 class="text-light-black fw-600 mb-2">INVOICE #${line.order_id}</h5>
@@ -134,7 +134,7 @@
                                             <div class="col-lg-12 d-flex mt-3">
                                                 <div class="checkout-product">
                                                     <div class="img-name-value">
-                                                        <h4>Pembayaran belum dilakukan, silahkan melakukan proses pembayaran terlebih dahulu</h4>
+                                                        <h4>Payment has not been received, please make a payment or check the payment status again!</h4>
                                                     </div>
                                                 </div>
                                             </div>
@@ -177,7 +177,7 @@
                                             <div class="col-lg-12 d-flex mt-3">
                                                 <div class="checkout-product">
                                                     <div class="img-name-value">
-                                                        <h4>Terimakasih sudah melakukan pembayaran!</h4>
+                                                        <h4>Thank you for your trust, we are very happy to serve you. Payment We Have Received</h4>
                                                     </div>
                                                 </div>
                                             </div>

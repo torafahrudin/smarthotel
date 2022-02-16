@@ -2,29 +2,15 @@
 
 namespace App\Controllers;
 
-use \App\Models\PegawaiModel;
-// use \Myth\Auth\Entities\User;
-
 class Home extends BaseController
 {
-    public function __construct()
-    {
-    }
-
-//    function user()
-//    {
-//        $authenticate = service('authentication');
-//        $authenticate->check();
-//        return $authenticate->user();
-//    }
-
     public function index()
     {
- //       $id = $this->user()->id;
         $data = [
-            'title'         => 'Dashboard',
+            'title'       => 'Dashboard',
+            'page_title'  => 'Dashboard',
+            'menu'        => $this->menu->get_menu()
         ];
-        // dd($data);
-        return view('home/index', $data);
+        return view('dashboard', $data);
     }
 }
